@@ -11,12 +11,12 @@
 |
 */
 
+// route to overview page
 Route::get('/', function () {
-    return view('overview');
+    return view('/overview/index');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+// route to the reviews page where all the reviews is shown
 Route::get('/reviews','ReviewController@index')->name('reviews');

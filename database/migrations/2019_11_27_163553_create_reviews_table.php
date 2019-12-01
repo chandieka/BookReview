@@ -13,19 +13,17 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
+        
             // relation with other model 
             // $table->integer('user_id')->nullable();
             // $table->integer('book_id')->nullable();
             
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('title');
             $table->decimal('rating');
             $table->string('content');
             $table->timestamps();
-
-            $table->index('user_id');
         });
     }
 
