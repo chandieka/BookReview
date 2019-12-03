@@ -6,11 +6,18 @@
 <div class="container">
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row">
-            <h1 class="text-white col-11">
-                Review Page
+            <h1 class="text-white col-11" >
+                    Review Page
             </h1>
-            <button class="btn btn-primary col-1" onclick="">
-                <span class="glyphicon glyphicon-plus">
+            {{-- change URL --}}
+            <script>
+                let create = function()
+                {
+                    window.location.href = 'reviews/create';
+                };
+            </script>
+            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Review" >
+                <i class="fas fa-plus"></i>
             </button>
         </div>
     </div>

@@ -18,8 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
-    {{-- ICON  --}}
+
+    {{-- Icons  --}}
     <script src="https://kit.fontawesome.com/22fce433bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -84,5 +84,11 @@
             @yield('content')
         </main>
     </div>
+    {{-- Tooltip Script --}}
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

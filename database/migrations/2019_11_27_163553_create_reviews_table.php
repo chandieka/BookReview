@@ -22,7 +22,8 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->decimal('rating');
-            $table->string('content');
+            $table->text('content');
+
             $table->timestamps();
         });
     }
