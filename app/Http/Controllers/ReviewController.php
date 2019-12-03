@@ -20,6 +20,15 @@ class ReviewController extends Controller
 
     public function create()
     {
+<<<<<<< Updated upstream
         return view('review/create');
+=======
+
+    }
+
+    public function store(Request $request)
+    {
+    
+>>>>>>> Stashed changes
     }
 }
