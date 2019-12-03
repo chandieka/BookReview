@@ -6,12 +6,12 @@
 <div class="container">
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row">
-            <h1 class="text-white col">
+            <h1 class="text-white col-11">
                 Review Page
             </h1>
-            <a href="/web3/public/reviews/create" class="col-2">
-                New Review
-            </a>
+            <button class="btn btn-primary col-1" onclick="">
+                <span class="glyphicon glyphicon-plus">
+            </button>
         </div>
     </div>
     <div class="row">
