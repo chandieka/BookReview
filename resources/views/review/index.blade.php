@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('title', 'Review Page')
-    
+
 @section('content')
 <div class="container">
     <div class="rounded-circle shadow-sm mb-2">
-        <div class="bg-dark rounded p-2">
-            <h1 class="text-white">
+        <div class="bg-dark rounded p-2 row">
+            <h1 class="text-white col">
                 Review Page
             </h1>
+            <a href="/web3/public/reviews/create" class="col-2">
+                New Review
+            </a>
         </div>
     </div>
     @forelse ($reviews as $review)
