@@ -13,7 +13,7 @@
 
 // route to overview page
 Route::get('/', function () {
-    return view('/overview/index');
+    return view('/overviews/index');
 });
 
 Auth::routes();
@@ -23,3 +23,5 @@ Route::get('/reviews','ReviewController@index')->name('reviews');
 
 // route to the creations page
 Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
+
+

@@ -8,27 +8,50 @@ use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index ()
     {
         // get all the reviews
         $reviews = \App\Review::all();
 
-        // return view('review/index', compact('reviews'));
-        return view('review/index', compact('reviews'));
+        // return datas to the views
+        return view('reviews/index', compact('reviews'));
 
     }
 
     public function create()
     {
-<<<<<<< Updated upstream
-        return view('review/create');
-=======
+        return view('reviews/create');
 
     }
 
     public function store(Request $request)
     {
-    
->>>>>>> Stashed changes
+        
     }
+
+    public function show($review)
+    {
+        # code...
+    }
+
+    public function edit()
+    {
+        # code...
+    }
+
+    public function update()
+    {
+        # code...
+    }
+
+    public function delete()
+    {
+
+    }
+
 }

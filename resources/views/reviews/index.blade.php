@@ -14,8 +14,9 @@
             </a>
         </div>
     </div>
-    @forelse ($reviews as $review)
-        <div class="shadow-sm p-5 mb-3 bg-light">
+    <div class="row">
+        @forelse ($reviews as $review)
+        <div class="shadow-sm p-5 mb-3 bg-light col-6">
             <div>
                 <h1>
                     {{ $review->title }}
@@ -30,12 +31,13 @@
                 </p>
             </div>
         </div>
-    @empty
-        <div>
-            <h1>
-                No Review!
-            </h1>
-        </div>
-    @endforelse
+        @empty
+            <div>
+                <h1 class="col-12">
+                    No Review!
+                </h1>
+            </div>
+        @endforelse
+    </div>
 </div>
 @endsection
