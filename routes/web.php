@@ -19,4 +19,9 @@ Auth::routes();
 
 Route::get('/myProfile', function() {
     return view('myProfile');
-});
+})->name('myProfile');
+
+Route::post('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
+
+Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
+Route::get('/editProfile', 'UserController@edit')->name('editProfile');

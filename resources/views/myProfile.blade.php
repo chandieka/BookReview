@@ -16,11 +16,14 @@
 
                     <p>Name: {{ Auth::user()->name }}</p>
                     <p>Mail: {{ Auth::user()->email }}</p>
+                
+                    <button onclick="window.location='{{ route("editProfile") }}'" class="btn btn-primary">
+                        Edit personal information
+                    </button>
+                    <button onclick="confirmDelete('{{ route("deleteProfile") }}')" class="btn btn-primary right">
+                        Delete my Account
+                    </button>
                 </div>
-
-                <button onclick="editPersonalInformation()">
-                    Edit personal information
-                </button>
             </div>
         </div>
     </div>
