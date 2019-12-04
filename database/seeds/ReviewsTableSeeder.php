@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ReviewsTableSeeder extends Seeder
 {
@@ -12,10 +13,11 @@ class ReviewsTableSeeder extends Seeder
     public function run()
     {
         $counter = 1;
-        while($counter <= 10){
+        while($counter <= 20){
             DB::table('reviews')->insert([
                 [
                     'title' => 'Review '.$counter,
+                    'user_id' => 1,
                     'rating' => 7.5,
                     'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quidem rem quaerat sit ratione veniam aut aspernatur. Culpa, nisi? Voluptatem modi corrupti unde a quod similique perferendis suscipit reprehenderit eligendi.'
                 ],
