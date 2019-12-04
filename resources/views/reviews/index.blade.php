@@ -26,7 +26,7 @@
         <div class="shadow-sm p-5 mb-3 bg-light col-6">
             <div>
                 <h1>
-                    {{ $review->title }}
+                <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
                 </h1>
                 <p>
                     Rating : {{ $review->rating}}

@@ -13,6 +13,7 @@
 
 // route to overview page
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,5 +32,5 @@ Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
 // route the request to the controller
 Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
 
-
-
+// route the request to the edit page
+Route::get('/reviews/{review}/edit', 'ReviewController@edit')->name('reviews.edit');

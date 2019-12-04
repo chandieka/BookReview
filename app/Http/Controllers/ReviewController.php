@@ -13,6 +13,7 @@ class ReviewController extends Controller
         $this->middleware('auth');
     }
 
+    // function for returning a validate request
     public function requestValidate(Request $request)
     {
         return $request->validate([
@@ -22,42 +23,49 @@ class ReviewController extends Controller
         ]);
     }
 
+    // rendered all the reviews
     public function index ()
     {
-        // get all the reviews
-        $reviews = \App\Review::paginate(4);
+        // get all the reviews from the auth user
+        $authUser = auth()->user();
+        $reviews = \App\Review::where('user_id', $authUser->id)->paginate(4);
 
-        // dd($reviews);
         // return datas to the views
-        
         return view('reviews/index', compact('reviews'));
     }
 
+    // rendered the create page
     public function create()
     {
         // go to the create review
         return view('reviews/create');
     }
 
+    // handle the logic for creation of reviews
     public function store(Request $request)
     {
         // validate the datas
         $review = $this->requestValidate($request);
 
         // create the review
-        \App\Review::create($review);
+        $data = \App\Review::create($review);
+        // assigned the review to the auth user
+        $data->user_id = auth()->user()->id;
+        $data->save();
 
-        return redirect('reviews/index');
+        // redirect to all views
+        return redirect('reviews/');
     }
 
+    // rendered one reviews
     public function show($review)
     {
         # code...
     }
 
-    public function edit()
+    public function edit($review)
     {
-        # code...
+        return $review;
     }
 
     public function update()
