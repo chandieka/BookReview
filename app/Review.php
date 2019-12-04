@@ -11,4 +11,9 @@ class Review extends Model
 
     // option 2
     // protected $guarder = [];
+
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class);
+    }
 }

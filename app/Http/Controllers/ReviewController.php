@@ -25,9 +25,11 @@ class ReviewController extends Controller
     public function index ()
     {
         // get all the reviews
-        $reviews = \App\Review::all();
+        $reviews = \App\Review::paginate(4);
 
+        // dd($reviews);
         // return datas to the views
+        
         return view('reviews/index', compact('reviews'));
     }
 

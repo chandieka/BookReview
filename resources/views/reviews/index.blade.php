@@ -46,5 +46,8 @@
             </div>
         @endforelse
     </div>
+    <div class="d-flex justify-content-center">
+        {{$reviews }}
+    </div>
 </div>
 @endsection
