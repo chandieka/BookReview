@@ -11,12 +11,19 @@
 |
 */
 
+// route to overview page
 Route::get('/', function () {
-    return view('welcome');
+    return view('/overviews/index');
 });
 
 Route::resource('books','BookController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// route to the reviews page where all the reviews is shown
+Route::get('/reviews','ReviewController@index')->name('reviews');
+
+// route to the creations page
+Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
+
+
