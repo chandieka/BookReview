@@ -22,13 +22,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//
-Route::get('/myProfile', function() {
-    return view('/profiles/myProfile');
-})->name('myProfile');
+Route::get('/myProfile', 'UserController@index')->name('myProfile');
 
-//
-Route::post('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
+Route::delete('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
 
 //
 Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
