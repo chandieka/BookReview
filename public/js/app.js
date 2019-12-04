@@ -5,7 +5,7 @@ function confirmDelete(url) {
     xhr.open('GET', url, true);
     xhr.send();
     xhr.onreadystatechange = function(e) {
-      if (xhr.status == 200) {
+      if (xhr.status == 200) { //check for success
         window.location.href="/";
       }
     }
