@@ -49,4 +49,7 @@ Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
 Route::get('/reviews/{review}/edit', 'ReviewController@edit')->name('reviews.edit');
 
 // route the request to the controller
-Route::put('/reviews/{review}','ReviewController@update')->name('photos.update');
+Route::put('/reviews/{review}','ReviewController@update')->name('reviews.update');
+
+//
+Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.delete');

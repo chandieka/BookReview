@@ -85,9 +85,12 @@ class ReviewController extends Controller
         return redirect('/reviews');
     }
 
-    public function delete()
+    public function destroy($id)
     {
+        $review = \App\Review::findOrFail($id);
 
+        $review->delete();
+
+        return redirect('/reviews');
     }
-
 }
