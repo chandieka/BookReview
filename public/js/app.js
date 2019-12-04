@@ -1,19 +1,17 @@
-function editPersonalInformation() {
-  // window.location.href="/web3/public/editProfile";
-  // window.location="{{ route('editProfile') }}";
-}
 function confirmDelete(url) {
   var certainty = confirm("Are you sure you want to delete your account?");
   if (certainty == true) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
+    xhr.open('GET', url, true);
     xhr.send();
-    xhr.onreadystatechange = function(e){
-      alert(xhr.status);
-    };
+    xhr.onreadystatechange = function(e) {
+      if (xhr.status == 200) {
+        window.location.href="/";
+      }
+    }
   }
   else {
-    window.location.href="/web3/public/myProfile";
+    window.location.href="/myProfile";
   }
 }
 

@@ -91,6 +91,5 @@ class UserController extends Controller
         $user = Auth::user();
 
         $user->delete();
-        return redirect('/');
     }
 }
