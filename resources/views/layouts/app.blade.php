@@ -37,7 +37,7 @@
                             <a href="/web3/public/" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/web3/public/reviews" class="nav-link">Reviews</a>
+                            <a href="/reviews" class="nav-link">Reviews</a>
                         </li>
                     </ul>
 
