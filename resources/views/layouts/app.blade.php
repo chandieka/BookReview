@@ -36,12 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/reviews" class="nav-link">Reviews</a>
-                        </li>
+                        
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -63,19 +58,17 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a href="/reviews" class="dropdown-item"> 
+                                        My Reviews
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('myProfile') }}">
+                                        {{ __('My Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a href="/reviews" class="dropdown-item"> 
-                                        My Reviews
-                                    </a>
-
-                                    <a class="dropdown-item" href="{{ route('myProfile') }}">
-                                        {{ __('My Profile') }}
-                                    </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

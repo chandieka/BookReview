@@ -77,7 +77,7 @@ class UserController extends Controller
         $user->email = request('mail');
         $user->save();
 
-        return redirect('/myProfile');
+        return redirect('/profile/myProfile');
     }
 
     /**
