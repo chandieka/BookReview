@@ -58,7 +58,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="/reviews" class="dropdown-item"> 
+                                    <a href="{{ route('reviews') }}" class="dropdown-item"> 
                                         My Reviews
                                     </a>
                                     <a class="dropdown-item" href="{{ route('myProfile') }}">

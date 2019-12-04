@@ -47,3 +47,6 @@ Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
 
 // route the request to the edit page
 Route::get('/reviews/{review}/edit', 'ReviewController@edit')->name('reviews.edit');
+
+// route the request to the controller
+Route::put('/reviews/{review}','ReviewController@update')->name('photos.update');
