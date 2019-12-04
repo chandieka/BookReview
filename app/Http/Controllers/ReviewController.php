@@ -13,25 +13,41 @@ class ReviewController extends Controller
         $this->middleware('auth');
     }
 
+    public function requestValidate(Request $request)
+    {
+        return $request->validate([
+            'title' => 'required',
+            'rating' => 'required',
+            'content' => 'required',
+        ]);
+    }
+
     public function index ()
     {
         // get all the reviews
-        $reviews = \App\Review::all();
+        $reviews = \App\Review::paginate(4);
 
+        // dd($reviews);
         // return datas to the views
+        
         return view('reviews/index', compact('reviews'));
-
     }
 
     public function create()
     {
+        // go to the create review
         return view('reviews/create');
-
     }
 
     public function store(Request $request)
     {
-        
+        // validate the datas
+        $review = $this->requestValidate($request);
+
+        // create the review
+        \App\Review::create($review);
+
+        return redirect('reviews/index');
     }
 
     public function show($review)

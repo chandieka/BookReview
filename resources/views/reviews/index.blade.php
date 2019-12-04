@@ -6,12 +6,19 @@
 <div class="container">
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row">
-            <h1 class="text-white col">
-                Review Page
+            <h1 class="text-white col-11" >
+                    Review Page
             </h1>
-            <a href="/web3/public/reviews/create" class="col-2">
-                New Review
-            </a>
+            {{-- change URL --}}
+            <script>
+                let create = function()
+                {
+                    window.location.href = 'reviews/create';
+                };
+            </script>
+            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Review" >
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
     </div>
     <div class="row">
@@ -38,6 +45,9 @@
                 </h1>
             </div>
         @endforelse
+    </div>
+    <div class="d-flex justify-content-center">
+        {{$reviews }}
     </div>
 </div>
 @endsection

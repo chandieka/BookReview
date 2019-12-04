@@ -12,6 +12,9 @@
 */
 
 // route to overview page
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('/overviews/index');
 });
@@ -20,10 +23,15 @@ Route::resource('books','BookController');
 
 Auth::routes();
 
+
 // route to the reviews page where all the reviews is shown
 Route::get('/reviews','ReviewController@index')->name('reviews');
 
 // route to the creations page
 Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
+
+// route the request to the controller
+Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
+
 
 

@@ -18,10 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Icons  --}}
+    <script src="https://kit.fontawesome.com/22fce433bb.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     BookReviews
@@ -34,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/web3/public/" class="nav-link">Home</a>
+                            <a href="/" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="/reviews" class="nav-link">Reviews</a>
@@ -81,5 +84,11 @@
             @yield('content')
         </main>
     </div>
+    {{-- Tooltip Script --}}
+    <script>
+        $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 </html>

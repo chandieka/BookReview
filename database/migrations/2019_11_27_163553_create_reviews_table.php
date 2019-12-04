@@ -15,15 +15,23 @@ class CreateReviewsTable extends Migration
     {
         
             // relation with other model 
-            // $table->integer('user_id')->nullable();
+            
             // $table->integer('book_id')->nullable();
             
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title');
             $table->decimal('rating');
-            $table->string('content');
+            $table->text('content');
             $table->timestamps();
+
+            // constraints
+            
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
