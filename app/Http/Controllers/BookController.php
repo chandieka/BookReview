@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
+    public function requestValidate(Request $request)
+    {
+        return $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+        ]);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +46,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate the datas
+        $book = $this->requestValidate($request);
+
+        // create the review
+        \App\Book::create($book);
+
+        return redirect('books')->with('success', 'A book has been added');
     }
 
     /**
@@ -57,7 +74,8 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = \App\Book::find($id);
+        return view('books/edit',compact('book','id'));
     }
 
     /**
@@ -69,7 +87,12 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = \App\Book::find($id);
+        $book->name = $request->get('name');
+        $book->description = $request->get('description');
+        $book->date = $request->get('date');
+        $book->save();
+        return redirect('books')->with('success', 'A book has been editted');
     }
 
     /**
@@ -80,6 +103,8 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = \App\Book::find($id);
+        $book->delete();
+        return redirect('books')->with('success','A book has been  deleted');
     }
 }
