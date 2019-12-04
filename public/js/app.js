@@ -1,3 +1,23 @@
+function editPersonalInformation() {
+  // window.location.href="/web3/public/editProfile";
+  // window.location="{{ route('editProfile') }}";
+}
+function confirmDelete(url) {
+  var certainty = confirm("Are you sure you want to delete your account?");
+  if (certainty == true) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.send();
+    xhr.onreadystatechange = function(e){
+      alert(xhr.status);
+    };
+  }
+  else {
+    window.location.href="/web3/public/myProfile";
+  }
+}
+
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -36985,8 +37005,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Xamp\htdocs\web3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Xamp\htdocs\web3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\web3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\web3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

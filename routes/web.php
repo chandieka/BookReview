@@ -22,6 +22,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/myProfile', function() {
+    return view('myProfile');
+})->name('myProfile');
+
+Route::post('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
+
+Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
+Route::get('/editProfile', 'UserController@edit')->name('editProfile');
 
 // route to the reviews page where all the reviews is shown
 Route::get('/reviews','ReviewController@index')->name('reviews');
