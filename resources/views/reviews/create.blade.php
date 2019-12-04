@@ -12,7 +12,7 @@
                 --}}
         </div>
     </div>
-    <form action="/web3/public/reviews" class="bg-light shadow-sm p-3" method="POST">
+    <form action="/reviews" class="bg-light shadow-sm p-3" method="POST">
         <div class="row">
             <div class="form-group col-6">
                 <label for="title">Title:</label>

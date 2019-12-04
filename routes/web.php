@@ -12,6 +12,9 @@
 */
 
 // route to overview page
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('/overviews/index');
 });
@@ -27,5 +30,6 @@ Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
 
 // route the request to the controller
 Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
+
 
 
