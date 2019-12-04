@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('profile/myProfile');
+        return view('profiles/myProfile');
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('profile/editProfile', ['user' => $user]);
+        return view('profiles/editProfile', ['user' => $user]);
     }
 
     /**
@@ -77,7 +77,7 @@ class UserController extends Controller
         $user->email = request('mail');
         $user->save();
 
-        return redirect('/profile/myProfile');
+        return redirect('/myProfile');
     }
 
     /**
