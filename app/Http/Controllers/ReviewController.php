@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Review;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class ReviewController extends Controller
 {
@@ -63,14 +63,26 @@ class ReviewController extends Controller
         # code...
     }
 
-    public function edit($review)
+    public function edit($id)
     {
-        return $review;
+        $review = \App\Review::findOrFail($id);
+
+        return view('/reviews/edit', compact('review'));
     }
 
-    public function update()
+    public function update($id)
     {
-        # code...
+        $review = \App\Review::findOrFail($id);
+
+        $data = request()->validate([
+            'title' => 'required',
+            'rating' => 'required',
+            'content' => 'required',
+        ]);
+
+        $review->update($data);
+
+        return redirect('/reviews');
     }
 
     public function delete()

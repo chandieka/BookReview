@@ -25,9 +25,14 @@
         @forelse ($reviews as $review)
         <div class="shadow-sm p-5 mb-3 bg-light col-6">
             <div>
-                <h1>
-                <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
-                </h1>
+                <div class="row  align-items-center">
+                    <h1 class="col">
+                        <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
+                    </h1>
+                <a name="edit" class="btn btn-primary col-2 " href="/reviews/{{ $review->id }}/edit" role="button">
+                         Edit 
+                    </a>
+                </div>
                 <p>
                     Rating : {{ $review->rating}}
                 </p>
