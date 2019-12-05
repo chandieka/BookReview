@@ -20,6 +20,28 @@ Route::get('/', function () {
     return view('/overviews/index');
 });
 
+// route to the books page where all the books are shown
+Route::get('/books', 'BookController@index')->name('books.index');
+
+// route to the book creation page
+Route::get('/books/create', 'BookController@create')->name('books.create');
+
+// route the request to the controller
+Route::post('/books', 'BookController@store')->name('books.store');
+
+// route to show a single book
+Route::get('/books/{book}', 'BookController@show')->name('books.show');
+
+// route to edit a book
+Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit');
+
+// route to update a book
+Route::patch('/books/{book}', 'BookController@update')->name('books.update');
+
+// route to destroy a book
+Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
+
+
 Auth::routes();
 
 Route::get('/myProfile', 'UserController@index')->name('myProfile');
@@ -32,8 +54,8 @@ Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
 //
 Route::get('/editProfile', 'UserController@edit')->name('editProfile');
 
-// route to the reviews page where all the reviews is shown
-Route::get('/reviews','ReviewController@index')->name('reviews');
+// route to the reviews page where all the reviews are shown
+Route::get('/reviews','ReviewController@index')->name('reviews.index');
 
 // route to the creations page
 Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
