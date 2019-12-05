@@ -45,7 +45,7 @@ Auth::routes();
 
 
 // route to the reviews page where all the reviews are shown
-Route::get('/reviews','ReviewController@index')->name('reviews');
+Route::get('/reviews','ReviewController@index')->name('reviews.index');
 
 // route to the creations page
 Route::get('/reviews/create','ReviewController@create')->name('reviews.create');

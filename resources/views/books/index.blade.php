@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container">
-    <br />
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row">
             <h1 class="text-white col-11" >
@@ -28,16 +27,16 @@
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th colspan="2">Action</th>
+        <th colspan="2">Originally Published</th>
       </tr>
     </thead>
     <tbody>
       
       @foreach($books as $book)
       <tr>
-        <td>{{ $book->id }}</td>
-        <td>{{ $book->name }}</td>
-        <td>{{ $book->description }}</td>
+        <td><a href="/books/{{$book->id}}" class="link-no-highlight">{{ $book->id }}</a></td>
+        <td><a href="/books/{{$book->id}}" class="link-no-highlight">{{ $book->name }}</a></td>
+        <td>{{ str_limit($book->description, 100) }}</td>
         <td>{{ $book->date }}</td>
         
         <td><a href="{{action('BookController@edit', $book->id)}}" class="btn btn-warning">Edit</a></td>
@@ -52,6 +51,9 @@
       @endforeach
     </tbody>
   </table>
+  <div class="d-flex justify-content-center">
+        {{ $books }}
+    </div>
   @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>

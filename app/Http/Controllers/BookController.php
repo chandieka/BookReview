@@ -24,7 +24,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books=\App\Book::all();
+        $books=\App\Book::paginate(8);
         return view('books/index',compact('books'));
     }
 
@@ -49,7 +49,7 @@ class BookController extends Controller
         // validate the datas
         $book = $this->requestValidate($request);
 
-        // create the review
+        // create the book
         \App\Book::create($book);
 
         return redirect('books')->with('success', 'A book has been added');
@@ -63,7 +63,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = \App\Book::find($id);
+        return view('books/show', compact('book', 'id'));
     }
 
     /**

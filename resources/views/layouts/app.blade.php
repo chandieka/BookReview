@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a href="/reviews" class="nav-link">Reviews</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/books" class="nav-link">Books</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

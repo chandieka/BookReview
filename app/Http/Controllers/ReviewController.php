@@ -47,7 +47,7 @@ class ReviewController extends Controller
         // create the review
         \App\Review::create($review);
 
-        return redirect('reviews/index');
+        return redirect('reviews');
     }
 
     public function show($review)

@@ -11002,6 +11002,15 @@ a.text-dark:focus {
   visibility: hidden !important;
 }
 
+.link-no-highlight {
+  color: #000;
+}
+
+.link-no-highlight:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 @media print {
   *,
   *::before,
