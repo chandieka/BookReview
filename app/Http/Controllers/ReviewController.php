@@ -14,9 +14,9 @@ class ReviewController extends Controller
     }
 
     // function for returning a validate request
-    public function requestValidate(Request $request)
+    public function requestValidate()
     {
-        return $request->validate([
+        return request()->validate([
             'title' => 'required',
             'rating' => 'required',
             'content' => 'required',
@@ -42,10 +42,10 @@ class ReviewController extends Controller
     }
 
     // handle the logic for creation of reviews
-    public function store(Request $request)
+    public function store()
     {
         // validate the datas
-        $review = $this->requestValidate($request);
+        $review = $this->requestValidate();
 
         /*
             TODO:
@@ -55,7 +55,6 @@ class ReviewController extends Controller
         // create the review
         $data = \App\Review::create($review);
         // assigned the review to the auth user
-        $data->user_id = auth()->user()->id;
         $data->save();
 
         // redirect to all views
@@ -77,13 +76,10 @@ class ReviewController extends Controller
 
     public function update($id)
     {
+        // get the object from the database
         $review = \App\Review::findOrFail($id);
 
-        $data = request()->validate([
-            'title' => 'required',
-            'rating' => 'required',
-            'content' => 'required',
-        ]);
+        $data = $this->requestValidate();
 
         $review->update($data);
 

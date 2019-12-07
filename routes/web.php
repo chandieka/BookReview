@@ -24,6 +24,9 @@ Route::get('/', function () {
     return view('/overviews/index');
 });
 
+//  BOOKS
+//
+//
 // route to the books page where all the books are shown
 Route::get('/books', 'BookController@index')->name('books.index');
 
@@ -45,6 +48,9 @@ Route::patch('/books/{book}', 'BookController@update')->name('books.update');
 // route to destroy a book
 Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
 
+// PROFILE
+//
+//
 //
 Route::get('/myProfile', 'UserController@index')->name('myProfile');
 
@@ -57,6 +63,9 @@ Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
 //
 Route::get('/editProfile', 'UserController@edit')->name('editProfile');
 
+// REVIEWS
+//
+//
 // route to the reviews page where all the reviews are shown
 Route::get('/reviews','ReviewController@index')->name('reviews.index');
 
@@ -72,5 +81,5 @@ Route::get('/reviews/{review}/edit', 'ReviewController@edit')->name('reviews.edi
 // route the request to the controller
 Route::put('/reviews/{review}','ReviewController@update')->name('reviews.update');
 
-//
+// route to the detele function
 Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.delete');
