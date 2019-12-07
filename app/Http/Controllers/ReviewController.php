@@ -47,6 +47,11 @@ class ReviewController extends Controller
         // validate the datas
         $review = $this->requestValidate($request);
 
+        /*
+            TODO:
+                DO INPUT VALIDATION 
+        */
+
         // create the review
         $data = \App\Review::create($review);
         // assigned the review to the auth user

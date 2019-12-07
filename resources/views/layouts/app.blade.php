@@ -37,12 +37,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/reviews" class="nav-link">Reviews</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="/books" class="nav-link">Books</a>
                         </li>
                     </ul>
@@ -66,7 +60,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('reviews') }}" class="dropdown-item"> 
+                                    <a href="{{ route('reviews.index') }}" class="dropdown-item"> 
                                         My Reviews
                                     </a>
                                     <a class="dropdown-item" href="{{ route('myProfile') }}">

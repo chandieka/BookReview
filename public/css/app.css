@@ -7,11 +7,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-
- .right {
-   float: right;
- }
- 
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -11005,15 +11000,6 @@ a.text-dark:focus {
 
 .invisible {
   visibility: hidden !important;
-}
-
-.link-no-highlight {
-  color: #000;
-}
-
-.link-no-highlight:hover {
-  text-decoration: none;
-  color: #000;
 }
 
 @media print {
