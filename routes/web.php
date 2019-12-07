@@ -16,6 +16,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+Auth::routes();
+
+// route to Over view
 Route::get('/', function () {
     return view('/overviews/index');
 });
@@ -41,11 +45,10 @@ Route::patch('/books/{book}', 'BookController@update')->name('books.update');
 // route to destroy a book
 Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
 
-
-Auth::routes();
-
+//
 Route::get('/myProfile', 'UserController@index')->name('myProfile');
 
+//
 Route::delete('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
 
 //
