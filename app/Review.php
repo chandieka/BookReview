@@ -12,8 +12,15 @@ class Review extends Model
     // option 2
     // protected $guarder = [];
 
+    // RELATIONSHIP 
+
     public function user()
     {
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
     }
 }

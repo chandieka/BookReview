@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Auth;
 
 class OverviewController extends Controller
 {
@@ -19,5 +21,20 @@ class OverviewController extends Controller
         {
             return view('overviews/index',compact('books'));
         }
+    }
+
+    // return the view with all the reviews    
+    public function reviews()
+    {
+        $reviews = \App\Review::paginate(10);
+        
+        return view('overviews/reviews',compact('reviews'));
+    }
+
+    public function reviewDestroy(Review $review)
+    {
+        \App\Review::destroy($review->id);
+
+        return redirect('overviews/reviews')->with('Success','Successfully delete a review!!');
     }
 }
