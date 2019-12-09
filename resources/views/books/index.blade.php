@@ -44,7 +44,7 @@
           <form action="{{action('BookController@destroy', $book->id)}}" method="post">
           @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit" onsubmit="return confirm('Do you want to delete this review?');">Delete</button>
           </form>
         </td>
       </tr>
