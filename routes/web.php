@@ -19,10 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// route to Over view
-Route::get('/', function () {
-    return view('/overviews/index');
-});
+// OVERVIEWS
+//
+//
+// route to Overview
+Route::get('/', 'OverviewController@index')->name('overview.index');
+
+//
+Route::get('/overview/reviews','OverviewController@reviews')->name('overview.reviews')->middleware('admin');
+
+//
+Route::delete('/overview/reviews/{$review}','OverviewController@reviewDestroy')->name('overview.reviews.delete')->middleware('admin');
 
 //  BOOKS
 //
@@ -33,22 +40,22 @@ Route::get('/', function () {
 Route::get('/books', 'BookController@index')->middleware('admin');
 
 // route to the book creation page
-Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('auth');
+Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('admin');
 
 // route the request to the controller
-Route::post('/books', 'BookController@store')->name('books.store')->middleware('auth');
+Route::post('/books', 'BookController@store')->name('books.store')->middleware('admin');
 
 // route to show a single book
 Route::get('/books/{book}', 'BookController@show')->name('books.show');
 
 // route to edit a book
-Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit')->middleware('auth');
+Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit')->middleware('admin');
 
 // route to update a book
-Route::patch('/books/{book}', 'BookController@update')->name('books.update')->middleware('auth');
+Route::patch('/books/{book}', 'BookController@update')->name('books.update')->middleware('admin');
 
 // route to destroy a book
-Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')->middleware('auth');
+Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')->middleware('admin');
 
 // PROFILE
 //
@@ -74,7 +81,7 @@ Route::get('/profiles/{profile}/edit', 'UserController@edit')->name('editProfile
 Route::get('/reviews','ReviewController@index')->name('reviews.index');
 
 // route to the creations page
-Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
+Route::get('/reviews/create/{book}','ReviewController@create')->name('reviews.create');
 
 // route the request to the controller
 Route::post('/reviews', 'ReviewController@store')->name('reviews.store');

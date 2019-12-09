@@ -3,10 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
-    // option 1 
-    protected $fillable = ['name', 'description', 'date'];
+    protected $fillable = ['title', 'description', 'date'];
+
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class);
+    }
+    // RELATIONSHIP
+
+    public function reviews()
+    {
+        return $this->HasMany(Review::class);
+    }
 
 }
