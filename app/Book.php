@@ -9,12 +9,10 @@ class Book extends Model
 {
     protected $fillable = ['title', 'description', 'date'];
 
-<<<<<<< HEAD
     public function genres()
     {
         return $this->belongsToMany(Genre::class);
     }
-=======
     // RELATIONSHIP
 
     public function reviews()
@@ -22,5 +20,4 @@ class Book extends Model
         return $this->HasMany(Review::class);
     }
 
->>>>>>> 5b164f95e9298c29ecfb59d9f1944b2d01c5d48a
 }
