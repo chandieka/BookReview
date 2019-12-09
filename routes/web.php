@@ -51,16 +51,16 @@ Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
 // PROFILE
 //
 //
-//
+// view profile
 Route::get('/myProfile', 'UserController@index')->name('myProfile');
 
-//
-Route::delete('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
+// delete profile
+Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
 
-//
+// update the database
 Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
 
-//
+// get edit form
 Route::get('/editProfile', 'UserController@edit')->name('editProfile');
 
 // REVIEWS
