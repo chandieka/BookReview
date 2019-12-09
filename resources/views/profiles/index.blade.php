@@ -42,7 +42,7 @@
         </td>
         <td><a href="{{action('BookController@edit', $profile->id)}}" class="btn btn-warning">Edit</a></td>
         <td>
-          <form action="{{action('BookController@destroy', $profile->id)}}" method="post">
+          <form action="{{action('UserController@destroy', $profile->id)}}" method="post">
           @csrf
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>

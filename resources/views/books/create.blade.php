@@ -10,9 +10,9 @@
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-6">
-            <label for="Name">Name:</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter the name of the book here...">
-            @error('name')
+            <label for="Name">Title:</label>
+            <input type="text" class="form-control" name="title" placeholder="Enter the title of the book here..." required>
+            @error('title')
               <strong>{{ $message }}</strong>
             @enderror
           </div>
@@ -21,7 +21,7 @@
           <div class="col-md-4"></div>
           <div class="form-group col-6">
             <label for="Description">Description:</label>
-            <textarea class="form-control" name="description" placeholder="Enter the description here..."></textarea>
+            <textarea class="form-control" name="description" placeholder="Enter the description here..." required></textarea>
               @error('description')
                 <strong>{{ $message }}</strong>
               @enderror
@@ -36,6 +36,23 @@
               <strong>{{ $message }}</strong>
             @enderror
          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-6 row" style="margin-top:60px">
+            @forelse ($genres as $genre)
+            <div class="justify-content-center p-2 m-2 multi-choice">
+            <input type="checkbox" class="checkbox" id="{{ $genre->name }}">
+              <i class="fas fa-plus"></i>
+              <label id="b" class="pointer" for="{{ $genre->name }}">{{ $genre->name }}</label>
+              </div>
+              </input>
+            @empty
+            <p>
+            No genres found!
+            </p>
+            @endforelse
+          </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>

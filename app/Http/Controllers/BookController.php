@@ -11,7 +11,7 @@ class BookController extends Controller
     public function requestValidate(Request $request)
     {
         return $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'date' => 'required',
         ]);
@@ -36,7 +36,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books/create');
+        $genres=\App\Genre::all();
+        return view('books/create', compact('genres'));
     }
 
     /**
@@ -91,7 +92,7 @@ class BookController extends Controller
     public function update(Request $request, $id)
     {
         $book = \App\Book::findOrFail($id);
-        $book->name = $request->get('name');
+        $book->title = $request->get('title');
         $book->description = $request->get('description');
         $book->date = $request->get('date');
         $book->save();
