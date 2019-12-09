@@ -42,9 +42,9 @@
           <div class="form-group col-6 row" style="margin-top:60px">
             @forelse ($genres as $genre)
             <div class="justify-content-center p-2 m-2 multi-choice">
-            <input type="checkbox" class="checkbox" id="{{ $genre->name }}">
+            <input type="checkbox" class="checkbox" id="{{ $genre->name }}" name="genre[]" value="{{ $genre->id }}">
               <i class="fas fa-plus"></i>
-              <label id="b" class="pointer" for="{{ $genre->name }}">{{ $genre->name }}</label>
+              <label class="pointer" for="{{ $genre->name }}">{{ $genre->name }}</label>
               </div>
               </input>
             @empty
