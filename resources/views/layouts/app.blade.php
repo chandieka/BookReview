@@ -40,10 +40,20 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/books" class="nav-link">Books</a>
+                            <a href="/books" class="nav-link">
+                                Books
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/profiles" class="nav-link">Profiles</a>
+                            <a href="/profiles" class="nav-link">
+                                Profiles
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/overview/reviews" class="nav-link"> 
+                                Reviews
+                            </a>
                         </li>
                     </ul>
                 @endif
