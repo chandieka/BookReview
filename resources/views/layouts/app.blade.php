@@ -97,8 +97,15 @@
                 </div>
             </div>
         </nav>
-
+        
         <main class="py-4">
+            @if (\Session::has('NotAdmin'))
+            <div class="container">
+                <div class="alert alert-danger">
+                    <p>{{ \Session::get('NotAdmin') }}</p>
+                </div>
+            </div>
+            @endif
             @yield('content')
         </main>
     </div>
