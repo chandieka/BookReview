@@ -26,6 +26,7 @@
       <tr>
         <th>Username</th>
         <th>Email</th>
+        <th>Is Admin</th>
       </tr>
     </thead>
     <tbody>
@@ -34,7 +35,11 @@
       <tr>
         <td><a href="/profiles/" class="link-no-highlight">{{ $profile->name }}</a></td>
         <td><a href="/profiles/" class="link-no-highlight">{{ $profile->email }}</a></td>
-        
+        <td>
+          <div>
+            <input type="checkbox">
+          </div>
+        </td>
         <td><a href="{{action('BookController@edit', $profile->id)}}" class="btn btn-warning">Edit</a></td>
         <td>
           <form action="{{action('BookController@destroy', $profile->id)}}" method="post">
@@ -43,6 +48,7 @@
             <button class="btn btn-danger" type="submit">Delete</button>
           </form>
         </td>
+        
       </tr>
       @endforeach
     </tbody>
