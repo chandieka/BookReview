@@ -35,18 +35,23 @@ class ReviewController extends Controller
     }
 
     // rendered the create page
-    public function create()
+    public function create($id)
     {
         // go to the create review
-        return view('reviews/create');
+        return view('reviews/create', compact('id'));
     }
 
     // handle the logic for creation of reviews
     public function store()
     {
         // validate the datas
-        $review = $this->requestValidate();
-
+        $review = request()->validate([
+            'title' => 'required',
+            'rating' => 'required',
+            'content' => 'required',
+            'book_id' => 'required'
+        ]);
+        
         /*
             TODO:
                 DO INPUT VALIDATION 
@@ -56,6 +61,7 @@ class ReviewController extends Controller
         $data = \App\Review::create($review);
         // assigned the review to the auth user
         $data->user_id = auth()->user()->id;
+        $data->book_id = request()->book_id;
         $data->save();
 
         // redirect to all views

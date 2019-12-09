@@ -37,6 +37,7 @@
             @enderror
         </div>
         @csrf
+        <input type="text" name="book_id" hidden value="{{$id}}">
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-primary">Reset</button>
     </form>

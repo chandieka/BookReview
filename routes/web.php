@@ -81,7 +81,7 @@ Route::get('/editProfile', 'UserController@edit')->name('editProfile')->middlewa
 Route::get('/reviews','ReviewController@index')->name('reviews.index');
 
 // route to the creations page
-Route::get('/reviews/create','ReviewController@create')->name('reviews.create');
+Route::get('/reviews/create/{book}','ReviewController@create')->name('reviews.create');
 
 // route the request to the controller
 Route::post('/reviews', 'ReviewController@store')->name('reviews.store');
