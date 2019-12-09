@@ -65,7 +65,7 @@ class BookController extends Controller
     public function show($id)
     {
         $book = \App\Book::findOrFail($id);
-        $reviews = $book->reviews;
+        $reviews = \App\Review::where('book_id', $book->id)->paginate(4);
         return view('books/show', compact('book', 'id', 'reviews'));
     }
 

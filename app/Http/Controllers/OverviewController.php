@@ -30,7 +30,7 @@ class OverviewController extends Controller
         
         return view('overviews/reviews',compact('reviews'));
     }
-    
+
     public function reviewDestroy(Review $review)
     {
         \App\Review::destroy($review->id);

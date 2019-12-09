@@ -41,8 +41,8 @@
         
         <td><a href="{{action('BookController@edit', $book->id)}}" class="btn btn-warning">Edit</a></td>
         <td>
-          <form action="{{action('BookController@destroy', $book->id)}}" method="post">
-          @csrf
+          <form action="{{action('BookController@destroy', $book->id)}}" method="post" onsubmit="return confirm('Do you want to delete this book?');">
+            @csrf
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
           </form>

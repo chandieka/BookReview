@@ -64,8 +64,8 @@ class ReviewController extends Controller
         $data->book_id = request()->book_id;
         $data->save();
 
-        // redirect to all views
-        return redirect('reviews/');
+        // redirect 
+        return redirect('/books/'.request()->book_id);
     }
 
     // rendered one reviews

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Books')
+@section('title', 'Book Page')
 
 @section('content')
 <div class="container shadow-sm p-5 mb-3 bg-light">
@@ -40,32 +40,35 @@
         </div>
         <div class="row card-body ml-1 mr-1">
             @forelse ($reviews as $review)
-                <div class="shadow-sm p-5 mb-3 bg-light col-6">
-                    <div>
-                        <div class="row align-items-center">
-                            <h1 class="col">
-                                <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
-                            </h1>
+                <div class="shadow-sm p-3 mb-3 bg-light col-5 ml-md-5">
+                    <div class="">
+                        <div>
+                            <div class="row align-items-center">
+                                <h1 class="col">
+                                    <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
+                                </h1>
+                            </div>
+                            <p>
+                                Rating : {{ $review->rating}}
+                            </p>
                         </div>
-                        <p>
-                            Rating : {{ $review->rating}}
-                        </p>
-                    </div>
-                    <div>
-                        <p>
-                            {{ $review->content }}
-                        </p>
+                        <div>
+                            <p>
+                                {{ $review->content }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-                @empty
-                    <div class="col-12 justify-content-center">
-                        <h1 class="text-danger">
-                            No Review!
-                        </h1>
-                    </div>
-                @endforelse
-            </div>
-        <div>
+            @empty
+                <div class="col-12 justify-content-center">
+                    <h1 class="text-danger">
+                        No Review!
+                    </h1>
+                </div>
+            @endforelse
+        </div>
+        <div class="d-flex justify-content-center">
+            {{$reviews }}
         </div>
     </div>
 </div>

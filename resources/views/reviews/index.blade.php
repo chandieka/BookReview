@@ -29,11 +29,11 @@
                     </h1>
                     <div class="col-2">
                         <div class="row">
-                            <form action="/reviews/{{ $review->id }}" method="POST" class="col"  >
+                            <form action="/reviews/{{ $review->id }}" method="POST" class="col" onsubmit="return confirm('Do you want to delete this review?');">
                                 @csrf
                                 @method('DELETE')
                                 <div class="row">
-                                    <button type="submit" class="btn btn-danger col" onsubmit="return confirm('Do you want to delete this review?');">
+                                    <button type="submit" class="btn btn-danger col">
                                         <i class="fas fa-trash-alt"></i> 
                                     </button>  
                                 </div>
