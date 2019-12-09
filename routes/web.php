@@ -61,18 +61,18 @@ Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')-
 //
 //
 // view profile
-Route::get('/myProfile', 'UserController@show')->name('myProfile')->middleware('auth');
+Route::get('/profiles/show/{id}', 'UserController@show')->name('myProfile')->middleware('checkOthers');
 
-Route::get('/profiles', 'Usercontroller@index')->name('profiles')->middleware('admin');
+Route::get('/profiles', 'Usercontroller@index')->middleware('admin');
 
 // delete profile
-Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile')->middleware('auth');
+Route::delete('/profiles/{profile}', 'UserController@destroy')->name('deleteProfile')->middleware('auth');
 
 // update the database
-Route::put('/editProfile', 'UserController@update')->name('confirmEdit')->middleware('auth');
+Route::put('/profiles/{profile}', 'UserController@update')->name('confirmEdit')->middleware('checkOthers');
 
 // get edit form
-Route::get('/editProfile', 'UserController@edit')->name('editProfile')->middleware('auth');
+Route::get('/profiles/{profile}/edit', 'UserController@edit')->name('editProfile')->middleware('auth');
 
 // REVIEWS
 //

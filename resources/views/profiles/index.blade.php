@@ -16,9 +16,6 @@
                     window.location.href = 'profiles/create';
                 };
             </script>
-            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Review" >
-                <i class="fas fa-plus"></i>
-            </button>
         </div>
     </div>
     <table class="table table-striped">
@@ -26,18 +23,28 @@
       <tr>
         <th>Username</th>
         <th>Email</th>
+        <th>Privilege</th>
       </tr>
     </thead>
     <tbody>
       
       @foreach($profiles as $profile)
       <tr>
-        <td><a href="/profiles/" class="link-no-highlight">{{ $profile->name }}</a></td>
-        <td><a href="/profiles/" class="link-no-highlight">{{ $profile->email }}</a></td>
+        <td><a href="/profiles/show/{{ $profile->id }}" class="link-no-highlight">{{ $profile->name }}</a></td>
+        <td>{{ $profile->email }}</a></td>
+        @if($profile->isAdmin == true)
+        <td> Admin </td>
+        @else
+        <td> Common User </td>
+        @endif
         
-        <td><a href="{{action('UserController@edit', $profile->id)}}" class="btn btn-warning">Edit</a></td>
-        <td>
-          <form action="{{action('UserController@destroy', $profile->id)}}" method="post">
+        @if($profile->isAdmin == true)
+        <td><form> <input type="checkbox" checked> Admin</form></td>
+        @else
+        <td><form> <input type="checkbox"> Admin</form></td>
+        @endif
+
+        <td><form action="{{action('UserController@destroy', $profile->id)}}" onsubmit="return confirm('Are you sure you want to delete this profile?')" method="post">
           @csrf
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
