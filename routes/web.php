@@ -31,37 +31,37 @@ Route::get('/', 'OverviewController@index')->name('overview.index');
 Route::get('/books', 'BookController@index')->middleware('admin');
 
 // route to the book creation page
-Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('auth');
+Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('admin');
 
 // route the request to the controller
-Route::post('/books', 'BookController@store')->name('books.store')->middleware('auth');
+Route::post('/books', 'BookController@store')->name('books.store')->middleware('admin');
 
 // route to show a single book
 Route::get('/books/{book}', 'BookController@show')->name('books.show');
 
 // route to edit a book
-Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit')->middleware('auth');
+Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit')->middleware('admin');
 
 // route to update a book
-Route::patch('/books/{book}', 'BookController@update')->name('books.update')->middleware('auth');
+Route::patch('/books/{book}', 'BookController@update')->name('books.update')->middleware('admin');
 
 // route to destroy a book
-Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')->middleware('auth');
+Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')->middleware('admin');
 
 // PROFILE
 //
 //
 // view profile
-Route::get('/myProfile', 'UserController@index')->name('myProfile');
+Route::get('/myProfile', 'UserController@index')->name('myProfile')->middleware('auth');
 
 // delete profile
-Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
+Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile')->middleware('auth');
 
 // update the database
-Route::put('/editProfile', 'UserController@update')->name('confirmEdit');
+Route::put('/editProfile', 'UserController@update')->name('confirmEdit')->middleware('auth');
 
 // get edit form
-Route::get('/editProfile', 'UserController@edit')->name('editProfile');
+Route::get('/editProfile', 'UserController@edit')->name('editProfile')->middleware('auth');
 
 // REVIEWS
 //

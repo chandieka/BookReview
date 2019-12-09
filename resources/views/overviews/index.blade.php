@@ -4,9 +4,9 @@
     
 @section('content')
 <div class="container">
-<div class="row">
+    <div class="row">
         @forelse ($books as $book)
-<div class="shadow-sm p-5 mb-3 bg-light col-6">
+        <div class="shadow-sm p-5 mb-3 bg-light col-4">
             <div>
                 <div class="row align-items-center">
                     <h1 class="col">

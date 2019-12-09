@@ -35,6 +35,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                @if(auth()->user() != null && auth()->user()->isAdmin)
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -42,6 +43,7 @@
                             <a href="/books" class="nav-link">Books</a>
                         </li>
                     </ul>
+                @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
