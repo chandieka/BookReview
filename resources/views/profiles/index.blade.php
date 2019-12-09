@@ -39,9 +39,9 @@
         @endif
         
         @if($profile->isAdmin == true)
-        <td><form> <input type="checkbox" checked> Admin</td>
+        <td><form> <input type="checkbox" checked> Admin</form></td>
         @else
-        <td><form> <input type="checkbox"> Admin</td>
+        <td><form> <input type="checkbox"> Admin</form></td>
         @endif
 
         <td><form action="{{action('UserController@destroy', $profile->id)}}" onsubmit="return confirm('Are you sure you want to delete this profile?')" method="post">

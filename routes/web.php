@@ -69,7 +69,7 @@ Route::get('/profiles', 'Usercontroller@index')->middleware('admin');
 Route::delete('/profiles/{profile}', 'UserController@destroy')->name('deleteProfile')->middleware('auth');
 
 // update the database
-Route::put('/profiles/{profile}', 'UserController@update')->name('confirmEdit')->middleware('auth');
+Route::put('/profiles/{profile}', 'UserController@update')->name('confirmEdit')->middleware('checkOthers');
 
 // get edit form
 Route::get('/profiles/{profile}/edit', 'UserController@edit')->name('editProfile')->middleware('auth');
