@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
 
-    public function requestValidate(Request $request)
+    public function requestValidate()
     {
-        return $request->validate([
+        return request()->validate([
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
+            'genres' => 'exists:genres,id',
         ]);
     }
 
@@ -49,7 +50,8 @@ class BookController extends Controller
     public function store(Request $request)
     {
         // validate the datas
-        $data = $this->requestValidate($request);
+        $this->requestValidate($request);
+        $data = request(['title', 'description', 'date']);
 
         // create the book
         $book = \App\Book::create($data);
@@ -69,7 +71,8 @@ class BookController extends Controller
     {
         $book = \App\Book::findOrFail($id);
         $reviews = \App\Review::where('book_id', $book->id)->paginate(4);
-        return view('books/show', compact('book', 'id', 'reviews'));
+        $genres = $book->genres;
+        return view('books/show', compact('book', 'id', 'reviews', 'genres'));
     }
 
     /**

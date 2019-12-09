@@ -19,7 +19,6 @@ class CreateBookGenreTable extends Migration
             $table->unsignedBigInteger('book_id');
   
             $table->unsignedBigInteger('genre_id');
-            $table->timestamps();
 
             $table->unique(['book_id', 'genre_id']);
             
