@@ -52,7 +52,9 @@ Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')-
 //
 //
 // view profile
-Route::get('/myProfile', 'UserController@index')->name('myProfile')->middleware('auth');
+Route::get('/myProfile', 'UserController@show')->name('myProfile')->middleware('auth');
+
+Route::get('/profiles', 'Usercontroller@index')->name('profiles')->middleware('admin');
 
 // delete profile
 Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile')->middleware('auth');

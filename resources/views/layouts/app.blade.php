@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a href="/books" class="nav-link">Books</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/profiles" class="nav-link">Profiles</a>
+                        </li>
                     </ul>
                 @endif
 
