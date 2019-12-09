@@ -49,10 +49,12 @@ class BookController extends Controller
     public function store(Request $request)
     {
         // validate the datas
-        $book = $this->requestValidate($request);
+        $data = $this->requestValidate($request);
 
         // create the book
-        \App\Book::create($book);
+        $book = \App\Book::create($data);
+
+        $book->genres()->attach(request('genre'));
 
         return redirect('books')->with('success', 'A book has been added');
     }

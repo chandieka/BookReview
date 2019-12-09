@@ -45,9 +45,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('profiles/myProfile');
+        $profile = \App\User::find($id);
+        return view('profiles/show', compact('profile', 'id'));
     }
 
     /**
@@ -56,11 +57,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        $user = Auth::user();
-
-        return view('/profiles/editProfile', ['user' => $user]);
+        $profile = \App\User::find($id);
+        return view('/profiles/edit', ['profile' => $profile]);
     }
 
     /**
@@ -70,15 +70,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $user = Auth::user();
+        $profile = \App\User::find($id);
 
-        $user->name = request('name');
-        $user->email = request('mail');
-        $user->save();
+        $profile->name = $request->get('name');
+        $profile->email = $request->get('mail');
+        $profile->save();
 
-        return redirect('/profiles/myProfile');
+        return view('/profiles/show', compact('profile', 'id'));
     }
 
     /**
@@ -87,10 +87,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
-        $user = Auth::user();
+        $profile = \App\User::find($id);
 
-        $user->delete();
+        $profile->delete();
+        return redirect('/profiles');
     }
 }
