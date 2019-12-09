@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('profiles/myProfile');
+        $profiles=\App\User::paginate(10);
+        return view('profiles/index',compact('profiles'));
     }
 
     /**
@@ -44,9 +45,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('profiles/myProfile');
     }
 
     /**

@@ -52,7 +52,9 @@ Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')-
 //
 //
 // view profile
-Route::get('/myProfile', 'UserController@index')->name('myProfile');
+Route::get('/myProfile', 'UserController@show')->name('myProfile');
+
+Route::get('/profiles', 'Usercontroller@index')->name('profiles');
 
 // delete profile
 Route::get('/deleteProfile', 'UserController@destroy')->name('deleteProfile');
