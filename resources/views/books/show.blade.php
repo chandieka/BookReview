@@ -9,7 +9,7 @@
 <div class="shadow-sm p-5 mb-3 bg-light col-10">
             <div>
                 <h1>
-                    {{ $book->name }}
+                    {{ $book->title }}
                 </h1>
                 <br>
                 <image height="250em" width="250em" src=""/>
