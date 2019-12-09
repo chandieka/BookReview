@@ -31,10 +31,10 @@
                     <h1 class="col">
                         <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
                     </h1>
-                    <form action="/reviews/{{ $review->id }}" method="POST" class="col-2"  >
+                    <form action="/reviews/{{ $review->id }}" onsubmit="return confirm('Do you want to delete this review?')" method="POST" class="col-2"  >
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onsubmit="return confirm('Do you want to delete this review?');">
+                        <button type="submit" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i> 
                         </button>  
                     </form>

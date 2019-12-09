@@ -14,12 +14,12 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('confirmEdit') }}">
+                    <form method="POST" action="/profiles/{{ $profile->id }}">
                     @csrf
                     @method('PUT')
 
-                        <p>Name: <input type="text"  class="form-control" value="{{ $user->name }}" name="name" id="name"></p>
-                        <p>Mail: <input type="email" class="form-control" value="{{ $user->email }}" name="mail" id="mail"> </p>
+                        <p>Name: <input type="text"  class="form-control" value="{{ $profile->name }}" name="name" id="name"></p>
+                        <p>Mail: <input type="email" class="form-control" value="{{ $profile->email }}" name="mail" id="mail"> </p>
 
                         <button type="submit" class="btn btn-primary">
                             Confirm
