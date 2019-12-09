@@ -55,6 +55,7 @@ class ReviewController extends Controller
         // create the review
         $data = \App\Review::create($review);
         // assigned the review to the auth user
+        $data->user_id = auth()->user()->id;
         $data->save();
 
         // redirect to all views
