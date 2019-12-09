@@ -19,10 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// route to Over view
-Route::get('/', function () {
-    return view('/overviews/index');
-});
+// route to Overview
+Route::get('/', 'OverviewController@index')->name('overview.index');
 
 //  BOOKS
 //
