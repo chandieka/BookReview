@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $profile = \App\User::find($id);
+        $profile = Auth::user();
         return view('/profiles/edit', ['profile' => $profile]);
     }
 
