@@ -77,7 +77,7 @@ class ReviewPolicy
      */
     public function restore(User $user, Review $review)
     {
-        //
+
     }
 
     /**

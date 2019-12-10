@@ -10,10 +10,10 @@
                     Add Header
                     Add Reset Button
                 --}}
-                
+
         </div>
     </div>
-    <form action="/reviews" class="bg-light shadow-sm p-3" method="POST">
+    <form action="{{ route('reviews.store') }} " class="bg-light shadow-sm p-3" method="POST">
         <div class="row">
             <div class="form-group col-6">
                 <label for="title">Title:</label>

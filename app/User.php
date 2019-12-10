@@ -44,6 +44,8 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
+    // FUNCTIONS
+
     public function isSuperAdmin() {
         return ($this->isAdmin == 1) ? true : false;
     }

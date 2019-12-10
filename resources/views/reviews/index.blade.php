@@ -29,17 +29,17 @@
                     </h1>
                     <div class="col-2">
                         <div class="row">
-                            <form action="/reviews/{{ $review->id }}" method="POST" class="col" onsubmit="return confirm('Do you want to delete this review?');">
+                            <form action="{{route('reviews.delete', $review->id )}} " method="POST" class="col" onsubmit="return confirm('Do you want to delete this review?');">
                                 @csrf
                                 @method('DELETE')
                                 <div class="row">
                                     <button type="submit" class="btn btn-danger col">
-                                        <i class="fas fa-trash-alt"></i> 
-                                    </button>  
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </div>
                             </form>
                             <a name="edit" class="btn btn-warning col" href="/reviews/{{ $review->id }}/edit" role="button">
-                                <i class="fas fa-edit"></i> 
+                                <i class="fas fa-edit"></i>
                             </a>
                         </div>
                     </div>
