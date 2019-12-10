@@ -32,7 +32,7 @@
       @foreach($profiles as $profile)
       <tr>
         <td>{{ $profile->id }}</td>
-        <td><a href="/profiles/show/{{ $profile->id }}" class="link-no-highlight">{{ $profile->name }}</a></td>
+        <td><a class="link-no-highlight">{{ $profile->name }}</a></td>
         <td>{{ $profile->email }}</a></td>
         @if($profile->isAdmin == true)
         <td> Admin </td>

@@ -18,7 +18,7 @@ class CheckOthers
     {
         $id = $request->route('id');
         if($id != Auth::user()->id){
-            return redirect('/');
+            return redirect('/')->with('NotAdmin', 'That is not your profile!');
         }
         else {
             return $next($request);

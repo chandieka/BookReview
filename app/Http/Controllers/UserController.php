@@ -72,7 +72,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $profile = \App\User::find($id);
+        $profile = Auth::user();
 
         $profile->name = $request->get('name');
         $profile->email = $request->get('mail');
