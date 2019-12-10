@@ -51,10 +51,10 @@ class ReviewController extends Controller
             'content' => 'required',
             'book_id' => 'required'
         ]);
-        
+
         /*
             TODO:
-                DO INPUT VALIDATION 
+                DO INPUT VALIDATION
         */
 
         // create the review
@@ -64,7 +64,7 @@ class ReviewController extends Controller
         $data->book_id = request()->book_id;
         $data->save();
 
-        // redirect 
+        // redirect
         return redirect('/books/'.request()->book_id);
     }
 
@@ -86,8 +86,15 @@ class ReviewController extends Controller
         // get the object from the database
         $review = \App\Review::findOrFail($id);
 
+        // Validate Request
         $data = $this->requestValidate();
 
+        /*
+            TODO:
+                INPUT VALIDATION
+        */
+
+        // Update the Review
         $review->update($data);
 
         return redirect('/reviews');
