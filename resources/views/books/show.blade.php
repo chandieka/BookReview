@@ -15,10 +15,15 @@
                 <image height="250em" width="250em" src=""/ class="">
             </div>
             <div class="col-7">
+                <div class="row">
+                    @forelse ($genres as $genre)
+                    <div class="justify-content-center p-2 ml-3 multi-choice"> {{ $genre->name }} </div>         
+                    @empty
+                        No genres!
+                    @endforelse
+                </div>
+                <br>
                 <h3>
-                    Description : 
-                    <br>
-                    <br>
                     {{ $book->description}}
                 </h3>
                 <p>

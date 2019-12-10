@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'All Reviews')
-    
+
 @section('content')
 <div class="container">
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row">
             <h1 class="text-white col" style="margin: 0">
-                    Books Page
+                    Reviews Overview
             </h1>
         </div>
     </div>
@@ -21,7 +21,7 @@
                 <th scope="col">Manipulation</th>
             </tr>
         </thead>
-        
+
         @forelse ($reviews as $review)
             <tr>
                 <th scope="row"><a href="/books/{{$review->book_id}}"> {{ $review->id }} </a></th>
@@ -35,13 +35,13 @@
                             @method('DELETE')
                             <div class="row">
                                 <button type="submit" class="btn btn-danger col">
-                                    <i class="fas fa-trash-alt"></i> 
-                                </button>  
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </div>
                         </form>
                         {{-- Not sure if Admin can edit some other plebs stuff --}}
                         {{-- <a name="edit" class="btn btn-primary col-2 mr-1 ml-1" href="/reviews/{{ $review->id }}/edit" role="button">
-                            <i class="fas fa-edit"></i> 
+                            <i class="fas fa-edit"></i>
                         </a> --}}
                     </div>
                 </td>
