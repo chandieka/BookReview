@@ -81,6 +81,21 @@ class UserController extends Controller
         return view('/profiles/show', compact('profile', 'id'));
     }
 
+    public function makeAdmin(Request $request, $id) {
+
+        $profile = \App\User::find($id);
+
+        if ($profile->isAdmin == false) {
+            $profile->isAdmin = true;
+        }
+        else {
+            $profile->isAdmin = false;
+        }
+        $profile->save();
+
+        return redirect('/profiles');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

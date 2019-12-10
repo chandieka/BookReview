@@ -21,6 +21,7 @@
     <table class="table table-striped">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Username</th>
         <th>Email</th>
         <th>Privilege</th>
@@ -30,6 +31,7 @@
       
       @foreach($profiles as $profile)
       <tr>
+        <td>{{ $profile->id }}</td>
         <td><a href="/profiles/show/{{ $profile->id }}" class="link-no-highlight">{{ $profile->name }}</a></td>
         <td>{{ $profile->email }}</a></td>
         @if($profile->isAdmin == true)
@@ -38,11 +40,17 @@
         <td> Common User </td>
         @endif
         
-        @if($profile->isAdmin == true)
-        <td><form> <input type="checkbox" checked> Admin</form></td>
-        @else
-        <td><form> <input type="checkbox"> Admin</form></td>
-        @endif
+        
+        <td><form method="POST" action="{{action('UserController@makeAdmin', $profile->id)}}">
+          @csrf
+          @method('PUT')
+
+          @if($profile->isAdmin == true)
+            <input type="checkbox" onChange="this.form.submit()" checked> Admin
+            @else
+            <input type="checkbox" onChange="this.form.submit()"> Admin
+          @endif
+        </form></td>
 
         <td><form action="{{action('UserController@destroy', $profile->id)}}" onsubmit="return confirm('Are you sure you want to delete this profile?')" method="post">
           @csrf

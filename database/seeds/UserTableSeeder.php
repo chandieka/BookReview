@@ -20,14 +20,17 @@ class UserTableSeeder extends Seeder
                 'isAdmin' => 1,
             ],
         ]);
-
-        DB::table('users')->insert([
-            [
-                'name' => 'test',
-                'email' => 'test@gmail.com',
-                'password' => bcrypt('Testing1'),
-            ],
-        ]);
+        $counter = 1;
+        while ($counter <= 5) {
+            DB::table('users')->insert([
+                [
+                    'name' => 'test '.$counter,
+                    'email' => 'test'.$counter.'@gmail.com',
+                    'password' => bcrypt('Testing1'),
+                ],
+            ]);
+            $counter++;
+        }
 
         DB::table('users')->insert([
             [
