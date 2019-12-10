@@ -71,8 +71,12 @@ Route::delete('/profiles/{profile}', 'UserController@destroy')->name('deleteProf
 // update the database
 Route::put('/profiles/{profile}', 'UserController@update')->name('confirmEdit')->middleware('checkOthers');
 
+// give a profile admin privileges
+Route::put('/profiles/{profile}', 'UserController@makeAdmin')->middleware('admin');
+
 // get edit form
 Route::get('/profiles/{profile}/edit', 'UserController@edit')->name('editProfile')->middleware('auth');
+
 
 // REVIEWS
 //
