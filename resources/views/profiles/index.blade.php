@@ -63,7 +63,10 @@
       @endforeach
     </tbody>
     </table>
-      
+
+    <div class="d-flex justify-content-center">
+        {{ $profiles }}
+    </div>      
       
   @if (\Session::has('success'))
       <div class="alert alert-success">

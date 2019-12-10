@@ -21,7 +21,7 @@ class UserTableSeeder extends Seeder
             ],
         ]);
         $counter = 1;
-        while ($counter <= 5) {
+        while ($counter <= 20) {
             DB::table('users')->insert([
                 [
                     'name' => 'test '.$counter,
