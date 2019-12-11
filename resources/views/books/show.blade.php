@@ -17,7 +17,7 @@
             <div class="col-7">
                 <div class="row">
                     @forelse ($genres as $genre)
-                    <div class="justify-content-center p-2 ml-3 multi-choice"> {{ $genre->name }} </div>         
+                    <div class="justify-content-center p-2 ml-3 multi-choice"> {{ $genre->name }} </div>
                     @empty
                         No genres!
                     @endforelse
@@ -52,6 +52,13 @@
                                 <h1 class="col">
                                     <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
                                 </h1>
+                                <div class="col">
+                                    <div class="row justify-content-end">
+                                        <div class="col-6">
+                                            By: {{$review->user->name}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <p>
                                 Rating : {{ $review->rating}}

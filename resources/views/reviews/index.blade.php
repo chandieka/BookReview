@@ -13,9 +13,20 @@
     <div class="rounded-circle shadow-sm mb-2">
         <div class="bg-dark rounded p-2 row align-items-center">
             <div class="text-white col">
-                <h1 class="text-white col" >
+                <h1 class="text-white">
                     Review Page
                 </h1>
+            </div>
+            {{-- icons --}}
+            <div class="col-2">
+                <div class="row">
+                    <a name="" id="" class="btn btn-primary col ml-3" href="#" role="button">
+                        <i class="fas fa-sort-alpha-up"></i>
+                    </a>
+                    <a name="" id="" class="btn btn-primary col ml-3" href="#" role="button">
+                        <i class="fas fa-sort-alpha-down"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
