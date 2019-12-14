@@ -23,18 +23,11 @@ class OverviewController extends Controller
         }
     }
 
-    // return the view with all the reviews    
+    // return the view with all the reviews
     public function reviews()
     {
         $reviews = \App\Review::paginate(10);
-        
+
         return view('overviews/reviews',compact('reviews'));
-    }
-
-    public function reviewDestroy(Review $review)
-    {
-        \App\Review::destroy($review->id);
-
-        return redirect('overviews/reviews')->with('Success','Successfully delete a review!!');
     }
 }

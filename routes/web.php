@@ -28,9 +28,6 @@ Route::get('/', 'OverviewController@index')->name('overview.index');
 //
 Route::get('/overview/reviews','OverviewController@reviews')->name('overview.reviews')->middleware('admin');
 
-//
-Route::delete('/overview/reviews/{$review}','OverviewController@reviewDestroy')->name('overview.reviews.delete')->middleware('admin');
-
 //  BOOKS
 //
 //
