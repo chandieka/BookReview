@@ -65,7 +65,15 @@ class ReviewPolicy
      */
     public function delete(User $user, Review $review)
     {
-        //
+        // check whether the user is an admin
+        // check if he own it.
+        if ($user->isSuperAdmin()){
+            return true;
+        }
+        else if ($user->id === $review->user_id){
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -30,7 +30,8 @@
                 <td class=""> {{ $review->rating }} </td>
                 <td>
                     <div class="row mr-1 justify-content-center">
-                        <form action="/overview/reviews/{{ $review->id }}" method="POST" class="col-2 mr-1 ml-1"  onsubmit="return confirm('Do you want to delete this review?');">
+                        <form action="{{ route('reviews.delete', [$review->id]) }}" method="POST" class="col-2 mr-1 ml-1"
+                              onsubmit="return confirm('Do you want to delete this review?');">
                             @csrf
                             @method('DELETE')
                             <div class="row">

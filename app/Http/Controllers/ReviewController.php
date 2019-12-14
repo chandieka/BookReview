@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Review;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReviewController extends Controller
 {
@@ -105,7 +106,14 @@ class ReviewController extends Controller
     {
         $review = \App\Review::findOrFail($id);
 
+        // abort_unless(Gate::allows('delete', $review), 403);
+        $this->authorize('delete', $review);
+
         $review->delete();
+
+        if (auth()->user()->isSuperAdmin()){
+            return redirect('/overview/reviews')->with('success','Review had been deleted!!');
+        }
 
         return redirect('/reviews');
     }

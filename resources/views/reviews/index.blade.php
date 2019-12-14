@@ -40,7 +40,8 @@
                     </h1>
                     <div class="col-2">
                         <div class="row">
-                            <form action="{{route('reviews.delete', $review->id )}} " method="POST" class="col" onsubmit="return confirm('Do you want to delete this review?');">
+                            <form action="{{route('reviews.delete', $review->id )}} " method="POST" class="col"
+                                onsubmit="return confirm('Do you want to delete this review?');">
                                 @csrf
                                 @method('DELETE')
                                 <div class="row">
