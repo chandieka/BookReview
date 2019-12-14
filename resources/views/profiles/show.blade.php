@@ -5,6 +5,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="profilePicture">
+            @if($profile->image)
+                <div class="image">
+                    <img src="{{ asset('storage/' . $profile->image) }}" class="img-thumbnail">
+                </div>
+            @endif
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Personal Information</div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use \Auth;
 
 class UserController extends Controller
@@ -76,6 +78,17 @@ class UserController extends Controller
 
         $profile->name = $request->get('name');
         $profile->email = $request->get('mail');
+
+        if (request()->has('image')) {
+            request()->validate([
+                'image' => 'file|image',
+            ]);
+            $profile->image = request()->image->store('uploads', 'public');
+            
+            // Scaling the image
+            $image = Image::make(public_path('storage/' . $profile->image))->fit(300, 300);
+            $image->save();
+        }
         $profile->save();
 
         return view('/profiles/show', compact('profile', 'id'));
