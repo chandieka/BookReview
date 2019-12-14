@@ -6,3 +6,7 @@
 .profilePicture {
     float: left;
 }
+
+.details {
+    min-height: 209.6px;
+}

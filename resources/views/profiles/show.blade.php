@@ -3,17 +3,22 @@
 @section('title', 'My Profile')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="profilePicture">
-            @if($profile->image)
-                <div class="image">
+            <div class="image">
+                @if($profile->image)
                     <img src="{{ asset('storage/' . $profile->image) }}" class="img-thumbnail">
-                </div>
-            @endif
+                @else
+                    <a href="{{action('UserController@edit', $profile->id)}}" title="Upload a profile picture!">
+                        <img src="{{ asset('storage/' . 'default/default.png') }}" class="img-thumbnail">
+                    </a>
+                @endif
+            </div>
         </div>
         <div class="col-md-8">
-            <div class="card">
+            <div class="card details">
                 <div class="card-header">Personal Information</div>
 
                 <div class="card-body">

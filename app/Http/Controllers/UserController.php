@@ -86,7 +86,7 @@ class UserController extends Controller
             $profile->image = request()->image->store('uploads', 'public');
             
             // Scaling the image
-            $image = Image::make(public_path('storage/' . $profile->image))->fit(300, 300);
+            $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
             $image->save();
         }
         $profile->save();
