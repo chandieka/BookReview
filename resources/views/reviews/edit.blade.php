@@ -12,10 +12,10 @@
                 --}}
         </div>
     </div>
-    <form action="/reviews/{{ $review->id }}" method="POST" class="bg-light shadow-sm p-3">
+    <form action="{{route('reviews.update', $review->id)}}" method="POST" class="bg-light shadow-sm p-3">
         @csrf
         @method('PUT')
-        
+
         <div class="row">
             <div class="form-group col-6">
                 <label for="title">Title:</label>
