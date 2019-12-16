@@ -104,14 +104,18 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
+        // get the review
         $review = \App\Review::findOrFail($id);
 
         // abort_unless(Gate::allows('delete', $review), 403);
         $this->authorize('delete', $review);
 
+        // delete this review
         $review->delete();
 
-        if (auth()->user()->isSuperAdmin()){
+        // FOR Admin when review is deleted redirect to the overview review page
+        $user = auth()->user();
+        if ($user->isSuperAdmin()){
             return redirect('/overview/reviews')->with('success','Review had been deleted!!');
         }
 
