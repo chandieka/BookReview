@@ -23,6 +23,11 @@
 
     {{-- Icons  --}}
     <script src="https://kit.fontawesome.com/22fce433bb.js" crossorigin="anonymous"></script>
+
+    {{-- Summernote Editor --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 </head>
 <body>
     <div id="app">
@@ -51,7 +56,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/overview/reviews" class="nav-link"> 
+                            <a href="/overview/reviews" class="nav-link">
                                 Reviews
                             </a>
                         </li>
@@ -76,7 +81,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('reviews.index') }}" class="dropdown-item"> 
+                                    <a href="{{ route('reviews.index') }}" class="dropdown-item">
                                         My Reviews
                                     </a>
                                     <a class="dropdown-item" href="/profiles/show/{{ Auth::user()->id }}">
@@ -97,7 +102,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <main class="py-4">
             @if (\Session::has('NotAdmin'))
             <div class="container">
