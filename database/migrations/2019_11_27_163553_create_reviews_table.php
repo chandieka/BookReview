@@ -13,24 +13,24 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        
-            // relation with other model 
-            
+
+            // relation with other model
+
             // $table->integer('book_id')->nullable();
-            
+
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('book_id')->nullable();
             $table->string('title');
             $table->decimal('rating');
-            $table->text('content');
+            $table->longText('content');
             $table->timestamps();
 
             // constraints
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }

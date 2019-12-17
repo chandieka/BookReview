@@ -19,8 +19,9 @@ class ReviewController extends Controller
     {
         return request()->validate([
             'title' => 'required|min:10',
-            'rating' => 'required|min:0|max:10',
-            'content' => 'required|min:20|max:255',
+            'rating' => 'required|integer|digits_between:0,10',
+            'content' => 'required|min:20',
+            'book_id' => 'required',
         ]);
     }
 
@@ -47,13 +48,8 @@ class ReviewController extends Controller
     public function store()
     {
         // validate the datas
-        $review = request()->validate([
-            'title' => 'required',
-            'rating' => 'required',
-            'content' => 'required',
-            'book_id' => 'required'
-        ]);
-
+        $review = $this->requestValidate();
+        dd($review);
         /*
             TODO:
                 DO INPUT VALIDATION
