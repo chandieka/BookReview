@@ -40,16 +40,22 @@
                 <div class="form-group">
                     <label for="content"> Review: </label>
                     {{-- <textarea class="form-control" name="content" rows="10" placeholder="Enter the content of the Review here..."></textarea> --}}
-                    <textarea name="content" id="summernote">{{ old('content') }}</textarea>
+                    <textarea class="description" name="content">{{ old('content') }}</textarea>
+                    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+                    <script>
+                        tinymce.init({
+                            selector:'textarea.description',
+                            width: 'auto',
+                            height: 300
+                        });
+                    </script>
                     @error('content')
                         <strong>{{ $message }}</strong>
                     @enderror
-                    <script src="/js/InitializeSummernote.js"></script>
                 </div>
                 @csrf
                 <input type="text" name="book_id" hidden value="{{$book->id}}">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                {{-- <button type="reset" class="btn btn-primary">Reset</button> --}}
             </form>
         </div>
     </div>

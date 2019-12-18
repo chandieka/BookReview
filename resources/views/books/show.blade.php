@@ -80,7 +80,7 @@
             @endforelse
         </div>
         <div class="d-flex justify-content-center">
-            {{$reviews }}
+            {!! $reviews !!}
         </div>
     </div>
 </div>
