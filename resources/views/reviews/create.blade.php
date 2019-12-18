@@ -39,7 +39,6 @@
                 </div>
                 <div class="form-group">
                     <label for="content"> Review: </label>
-                    {{-- <textarea class="form-control" name="content" rows="10" placeholder="Enter the content of the Review here..."></textarea> --}}
                     <textarea class="description" name="content">{{ old('content') }}</textarea>
                     <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
                     <script>

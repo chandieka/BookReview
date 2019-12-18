@@ -34,7 +34,15 @@
         </div>
         <div class="form-group">
             <label for="content"> Review: </label>
-            <textarea class="form-control" name="content" rows="10">{{ $review->content }}</textarea>
+            <textarea class="description" name="content">{{ $review->content }}</textarea>
+                    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+                    <script>
+                        tinymce.init({
+                            selector:'textarea.description',
+                            width: 'auto',
+                            height: 300
+                        });
+                    </script>
             @error('content')
                 <strong>{{ $message }}</strong>
             @enderror
