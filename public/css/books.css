@@ -1,0 +1,14 @@
+.multi-choice {
+    border-radius: 24px;
+    font-weight: bold;
+    background-color: #d0d0d0;
+    cursor: pointer;
+}
+
+.checked {
+    background-color: #b0b0b0;
+}
+
+.checkbox {
+    visibility: hidden;
+}

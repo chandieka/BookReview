@@ -36,17 +36,28 @@
               <strong>{{ $message }}</strong>
             @enderror
          </div>
+        </div><div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-6">
+            <strong>Date : </strong>  
+        <p class="below">Image: <input type="file" name="image"></p>
+            @error('image')
+              <strong>{{ $message }}</strong>
+            @enderror
+         </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-6 row" style="margin-top:60px">
+          <div class="form-group col-6 row">
             @forelse ($genres as $genre)
-            <div class="justify-content-center p-2 m-2 multi-choice">
-            <input type="checkbox" class="checkbox" id="{{ $genre->name }}" name="genre[]" value="{{ $genre->id }}">
+            <div class="justify-content-center">
+            <input type="checkbox" class="checkbox" id="{{ $genre->name }}" name="genre[]" value="{{ $genre->id }}" onclick="changeColor('{{ $genre->name }}')">
+              <label class="multi-choice p-2 m-2" for="{{ $genre->name }}" id="{{ $genre->name }}lbl">{{ $genre->name }}
               <i class="fas fa-plus"></i>
-              <label class="pointer" for="{{ $genre->name }}">{{ $genre->name }}</label>
-              </div>
-              </input>
+              </label>
+            </input>
+            </div>
+            <script>changeColor('{{ $genre->name }}');</script>
             @empty
             <p>
             No genres found!

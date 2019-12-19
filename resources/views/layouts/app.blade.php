@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/deleteProfile.js') }}" defer></script>
+    <script src="{{ asset('js/books.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/myProfile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/books.css') }}" rel="stylesheet">
 
     {{-- Icons  --}}
     <script src="https://kit.fontawesome.com/22fce433bb.js" crossorigin="anonymous"></script>
