@@ -9,7 +9,9 @@
         <div class="profilePicture">
             <div class="image">
                 @if($profile->image)
-                    <img src="{{ asset('storage/' . $profile->image) }}" class="img-thumbnail">
+                    <a href="{{action('UserController@edit', $profile->id)}}" title="Upload a new profile picture">
+                        <img src="{{ asset('storage/' . $profile->image) }}" class="img-thumbnail">
+                    </a>
                 @else
                     <a href="{{action('UserController@edit', $profile->id)}}" title="Upload a profile picture">
                         <img src="{{ asset('storage/' . 'default/default.png') }}" class="img-thumbnail">
