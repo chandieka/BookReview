@@ -75,14 +75,19 @@ class ReviewController extends Controller
     public function edit($id)
     {
         $review = \App\Review::findOrFail($id);
+        $user = auth()->user();
 
-        return view('/reviews/edit', compact('review'));
+        if (Gate::allows('edit-review',$review)){
+            return view('/reviews/edit', compact('review'));
+        }
+        else{
+            return redirect('/')->with('fail','you dont have the permission to edit this review!');
+        }
     }
 
     public function update($id)
     {
-        // get the object from the database
-        $review = \App\Review::findOrFail($id);
+        // get the object from th= \App\Review::findOrFail($id);
 
         // Validate Request
         $data = request()->validate([
@@ -116,7 +121,7 @@ class ReviewController extends Controller
         // FOR Admin when review is deleted redirect to the overview review page
         $user = auth()->user();
         if ($user->isSuperAdmin()){
-            return redirect('/overview/reviews')->with('success','Review had been deleted!!');
+             return redirect('/overview/reviews')->with('success','Review had been deleted!!');
         }
 
         return redirect('/reviews');
