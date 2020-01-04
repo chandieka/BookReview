@@ -87,7 +87,14 @@ class UserController extends Controller
             
             // Scaling the image
             $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
-            //$image->mask('public/storage/default/pentagon_shape.jpg');
+
+            // Watermark
+            $image->text('BookReviews', 190, 190, function($font) {
+                $font->color('#72BCD4');
+                $font->align('right');
+                $font->valign('bottom');
+            });
+
             $image->save();
         }
         $profile->save();
