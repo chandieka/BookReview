@@ -49,6 +49,7 @@ class ReviewController extends Controller
     {
         // validate the datas
         $review = $this->requestValidate();
+
         /*
             TODO:
                 DO INPUT VALIDATION
@@ -86,7 +87,7 @@ class ReviewController extends Controller
         // Validate Request
         $data = request()->validate([
             'title' => 'required|min:5',
-            'rating' => 'required|integer|digits_between:0,10',
+            'rating' => 'required',
             'content' => 'required|min:20',
         ]);
 

@@ -6,10 +6,6 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            {{-- TODO
-                    Add Header
-                    Add Reset Button
-                --}}
             <h1>
                 Review for book:
                 <a name="" id="" class="btn btn-primary" href="{{route('books.show',$book->id)}}" role="button">
@@ -39,11 +35,11 @@
                 </div>
                 <div class="form-group">
                     <label for="content"> Review: </label>
-                    <textarea class="description" name="content">{{ old('content') }}</textarea>
+                    <textarea id="description" name="content">{{ old('content') }}</textarea>
                     <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
                     <script>
                         tinymce.init({
-                            selector:'textarea.description',
+                            selector:'textarea#description',
                             width: 'auto',
                             height: 300
                         });
