@@ -61,14 +61,15 @@
                                 </div>
                             </div>
                             <p>
-                                Rating : {{ $review->rating}}
+                                Rating : {{ $review->rating }}
                             </p>
                         </div>
                         <div>
                             <p>
-                                {{ $review->content }}
+                                {!! $review->content !!}
                             </p>
                         </div>
+                        <a href="/">Read More..</a>
                     </div>
                 </div>
             @empty

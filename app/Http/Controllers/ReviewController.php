@@ -18,9 +18,10 @@ class ReviewController extends Controller
     public function requestValidate()
     {
         return request()->validate([
-            'title' => 'required|min:10',
-            'rating' => 'required|min:0|max:10',
-            'content' => 'required|min:20|max:255',
+            'title' => 'required|min:5',
+            'rating' => 'required|digits_between:0,10',
+            'content' => 'required|min:20',
+            'book_id' => 'required',
         ]);
     }
 
@@ -47,12 +48,7 @@ class ReviewController extends Controller
     public function store()
     {
         // validate the datas
-        $review = request()->validate([
-            'title' => 'required',
-            'rating' => 'required',
-            'content' => 'required',
-            'book_id' => 'required'
-        ]);
+        $review = $this->requestValidate();
 
         /*
             TODO:
@@ -89,7 +85,11 @@ class ReviewController extends Controller
         $review = \App\Review::findOrFail($id);
 
         // Validate Request
-        $data = $this->requestValidate();
+        $data = request()->validate([
+            'title' => 'required|min:5',
+            'rating' => 'required',
+            'content' => 'required|min:20',
+        ]);
 
         /*
             TODO:

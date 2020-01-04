@@ -12,6 +12,8 @@
                 --}}
         </div>
     </div>
+    {{-- <script src="{{ asset('js/maxWord.js') }}"></script> --}}
+
     <form action="{{route('reviews.update', $review->id)}}" method="POST" class="bg-light shadow-sm p-3">
         @csrf
         @method('PUT')
@@ -34,13 +36,20 @@
         </div>
         <div class="form-group">
             <label for="content"> Review: </label>
-            <textarea class="form-control" name="content" rows="10">{{ $review->content }}</textarea>
+            <textarea id="description" name="content">{{ $review->content }}</textarea>
+                    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
+                    <script>
+                        tinymce.init({
+                            selector:'textarea#description',
+                            width: 'auto',
+                            height: 300
+                        });
+                    </script>
             @error('content')
                 <strong>{{ $message }}</strong>
             @enderror
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="reset" class="btn btn-primary">Reset</button>
     </form>
 </div>
 @endsection

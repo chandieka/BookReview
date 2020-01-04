@@ -51,7 +51,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/overview/reviews" class="nav-link"> 
+                            <a href="/overview/reviews" class="nav-link">
                                 Reviews
                             </a>
                         </li>
@@ -76,7 +76,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('reviews.index') }}" class="dropdown-item"> 
+                                    <a href="{{ route('reviews.index') }}" class="dropdown-item">
                                         My Reviews
                                     </a>
                                     <a class="dropdown-item" href="/profiles/show/{{ Auth::user()->id }}">
@@ -97,7 +97,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <main class="py-4">
             @if (\Session::has('NotAdmin'))
             <div class="container">
