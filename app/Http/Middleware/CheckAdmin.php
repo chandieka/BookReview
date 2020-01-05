@@ -21,7 +21,7 @@ class CheckAdmin
         }
         else {
             if (! $user->isAdmin == true) {
-                return redirect('/')->with('NotAdmin','Action need Root level!!!');
+                return redirect('/')->with('NotAdmin','Insufficient permissions!');
             }
         }
         return $next($request);
