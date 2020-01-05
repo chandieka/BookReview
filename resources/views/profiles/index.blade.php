@@ -16,6 +16,9 @@
                     window.location.href = 'profiles/create';
                 };
             </script>
+            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Profile" >
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
     </div>
     <table class="table table-striped">

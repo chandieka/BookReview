@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Hash;
 use \Auth;
 
 class UserController extends Controller
@@ -27,7 +28,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', \App\User::class);
+
+        return view('profiles/create');
     }
 
     /**
@@ -38,7 +41,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create', \App\User::class);
+
+        $data = request(['name', 'email', 'password']);
+
+        // create the profile
+        $user = \App\User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+
+        return redirect('profiles')->with('success', 'A profile has been added');
     }
 
     /**
