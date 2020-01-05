@@ -11258,19 +11258,6 @@ a.text-dark:focus {
   visibility: hidden !important;
 }
 
-.multi-choice {
-  background: #f0f0f0;
-  border-radius: 50em;
-  
-}
-
-.checkbox {
-}
-
-.pointer {
-  cursor: pointer;
-}
-
 @media print {
   *,
   *::before,

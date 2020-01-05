@@ -98,7 +98,7 @@ class UserController extends Controller
                 'image' => 'file|image',
             ]);
             $profile->image = request()->image->store('uploads', 'public');
-            
+
             // Scaling the image
             $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
 
@@ -121,8 +121,8 @@ class UserController extends Controller
         return view('/profiles/show', compact('profile', 'id'));
     }
 
-    public function makeAdmin(Request $request, $id) {
-
+    public function makeAdmin(Request $request, $id)
+    {
         $profile = \App\User::find($id);
 
         if ($profile->isAdmin == false) {

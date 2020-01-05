@@ -21,7 +21,6 @@
                 <th scope="col">Manipulation</th>
             </tr>
         </thead>
-
         @forelse ($reviews as $review)
             <tr>
                 <th scope="row"><a href="/books/{{$review->book_id}}"> {{ $review->id }} </a></th>
@@ -40,10 +39,6 @@
                                 </button>
                             </div>
                         </form>
-                        {{-- Not sure if Admin can edit some other plebs stuff --}}
-                        {{-- <a name="edit" class="btn btn-primary col-2 mr-1 ml-1" href="/reviews/{{ $review->id }}/edit" role="button">
-                            <i class="fas fa-edit"></i>
-                        </a> --}}
                     </div>
                 </td>
             </tr>

@@ -62,7 +62,7 @@
             </div>
             <div>
                 <p>
-                    {{ $review->content }}
+                    {!! $review->content !!}
                 </p>
             </div>
         </div>
