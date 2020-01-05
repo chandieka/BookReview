@@ -12,7 +12,7 @@
                     <img src="{{ asset('storage/' . $profile->image) }}" class="img-thumbnail">
                 @else
                     <a href="{{action('UserController@edit', $profile->id)}}" title="Upload a profile picture">
-                        <img src="{{ asset('storage/' . 'default/default.png') }}" class="img-thumbnail">
+                        <img src="{{ asset('storage/default/default.png') }}" class="img-thumbnail">
                     </a>
                 @endif
             </div>

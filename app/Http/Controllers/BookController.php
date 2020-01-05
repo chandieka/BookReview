@@ -72,7 +72,7 @@ class BookController extends Controller
         $book = \App\Book::findOrFail($id);
         $reviews = \App\Review::where('book_id', $book->id)->paginate(4);
         $genres = $book->genres;
-        return view('books/show', compact('book', 'id', 'reviews', 'genres'));
+        return view('books/show', compact('book', 'reviews', 'genres'));
     }
 
     /**
@@ -84,7 +84,9 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = \App\Book::findOrFail($id);
-        return view('books/edit',compact('book','id'));
+        $all_genres = \App\Genre::all();
+        $book_genres = $book->genres;
+        return view('books/edit',compact('book','all_genres', 'book_genres'));
     }
 
     /**
