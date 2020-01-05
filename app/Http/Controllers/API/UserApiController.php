@@ -20,15 +20,6 @@ class UserApiController extends Controller
         return new UserResourceCollection(User::paginate());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,7 +29,16 @@ class UserApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::create($request->all());
+        $user->password = bcrypt($request->password);
+
+        return new UserResource($user);
     }
 
     /**
@@ -53,17 +53,6 @@ class UserApiController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -72,17 +61,27 @@ class UserApiController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user->update($request->all());
+
+        return new UserResource($user);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @return []
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return response()->json();
     }
 }

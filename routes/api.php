@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', 'API\UserApiController@index');
-
-Route::get('/user/{user}','API\UserApiController@show');
+Route::apiResource('/user', 'API\UserApiController');
+Route::apiResource('/review', 'API\ReviewApiController');
+Route::apiResource('/book', 'API\BookApiController');
