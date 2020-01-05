@@ -88,10 +88,15 @@ class UserController extends Controller
             // Scaling the image
             $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
 
+            // Get star mask
+            $img = Image::make('storage/default/starMask.png')->fit(200, 200);
+
+            $image->insert($img);
+
             // Watermark
-            $image->text('BookReviews', 190, 190, function($font) {
+            $image->text('BookReviews', 100, 190, function($font) {
                 $font->color('#72BCD4');
-                $font->align('right');
+                $font->align('center');
                 $font->valign('bottom');
             });
 
