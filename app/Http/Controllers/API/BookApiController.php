@@ -14,17 +14,7 @@ class BookApiController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return new BookResourceCollection(Book::paginate());
     }
 
     /**
@@ -35,7 +25,15 @@ class BookApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+        ]);
+
+        $book = Book::create($request->all());
+
+        return new BookResource($book);
     }
 
     /**
@@ -46,18 +44,7 @@ class BookApiController extends Controller
      */
     public function show(Book $book)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book)
-    {
-        //
+        return BookResource($book);
     }
 
     /**
@@ -69,7 +56,15 @@ class BookApiController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'required',
+        ]);
+
+        $book->update($request->all());
+
+        return new BookResource($book);
     }
 
     /**
@@ -80,6 +75,8 @@ class BookApiController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return response()->json();
     }
 }
