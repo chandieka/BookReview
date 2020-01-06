@@ -7,12 +7,22 @@
       <h2>Adding a book to the database</h2><br/>
       <form method="POST" action="/books" class="bg-light shadow-sm p-3">
       @csrf
-        <div class="row">
+      <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-6">
             <label for="Name">Title:</label>
             <input type="text" class="form-control" name="title" placeholder="Enter the title of the book here..." required>
             @error('title')
+              <strong>{{ $message }}</strong>
+            @enderror
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-6">
+            <label for="Name">Author:</label>
+            <input type="text" class="form-control" name="author" placeholder="Enter the author of the book here..." required>
+            @error('author')
               <strong>{{ $message }}</strong>
             @enderror
           </div>

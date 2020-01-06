@@ -11,3 +11,9 @@ function changeColor(id) {
         label.classList.remove('checked');
     }
   } 
+
+function selectCheckbox(id) {
+    let checkBox = document.getElementById(id);
+
+    checkBox.checked = true;
+}

@@ -51,7 +51,7 @@ class BookController extends Controller
     {
         // validate the datas
         $this->requestValidate($request);
-        $data = request(['title', 'description', 'date']);
+        $data = request(['title', 'description', 'date', 'author', 'image']);
 
         // create the book
         $book = \App\Book::create($data);
@@ -85,7 +85,14 @@ class BookController extends Controller
     {
         $book = \App\Book::findOrFail($id);
         $all_genres = \App\Genre::all();
+        if(!is_null($book->genres))
+        {
         $book_genres = $book->genres;
+        }
+        else
+        {
+            $book_genres = [];
+        }
         return view('books/edit',compact('book','all_genres', 'book_genres'));
     }
 
@@ -102,6 +109,17 @@ class BookController extends Controller
         $book->title = $request->get('title');
         $book->description = $request->get('description');
         $book->date = $request->get('date');
+        $book->author = $request->get('author');
+        if (request()->has('image')) {
+            request()->validate([
+                'image' => 'file|image',
+            ]);
+            $book->image = request()->image->store('uploads', 'public');
+            
+            // Scaling the image
+            $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
+            $image->save();
+        }
         $book->save();
         return redirect('books')->with('success', 'A book has been editted');
     }

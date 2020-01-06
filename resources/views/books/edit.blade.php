@@ -6,15 +6,25 @@
 
 <div class="container">
       <h2>Edit A Book</h2><br  />
-        <form method="POST" action="/books/{{$book->id}}">
+        <form method="POST" action="/books/{{$book->id}}" enctype="multipart/form-data">
         <input name="_method" type="hidden" value="PATCH">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-6">
-            <label for="Name">Name:</label>
-            <input type="text" class="form-control" name="title" value="{{$book->name}}">
+            <label for="Name">Title: </label>
+            <input type="text" class="form-control" name="title" value="{{$book->title}}">
             @error('title')
+              <strong>{{ $message }}</strong>
+            @enderror
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="form-group col-6">
+            <label for="Name">Author: </label>
+            <input type="text" class="form-control" name="author" value="{{$book->author}}">
+            @error('author')
               <strong>{{ $message }}</strong>
             @enderror
           </div>
@@ -39,14 +49,15 @@
             @enderror
          </div>
         </div>
-        </div><div class="row">
+        <div class="row">
           <div class="col-md-4"></div>
-          <div class="form-group col-6">
-            <strong>Date : </strong>  
-        <p class="below">Image: <input type="file" name="image"></p>
-            @error('image')
-              <strong>{{ $message }}</strong>
-            @enderror
+          <div class="form-group col-8">
+            <strong>Image: </strong>
+            <br>
+            <input type="file" name="image">
+              @error('image')
+                <strong>{{ $message }}</strong>
+              @enderror
          </div>
         </div>
         <div class="row">
@@ -60,9 +71,10 @@
               </label>
             </input>
             </div>
-            @if(in_array($genre, $book_genres))
+            @if($book_genres->contains($genre))
             <script>selectCheckbox('{{ $genre->name }}');</script>
             <script>changeColor('{{ $genre->name }}');</script>
+            @endif
             @empty
             <p>
             No genres found!
