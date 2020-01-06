@@ -60,6 +60,13 @@ Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy')-
 // view profile
 Route::get('/profiles/show/{id}', 'UserController@show')->name('myProfile')->middleware('checkOthers');
 
+// route to the profile creation page
+Route::get('/profiles/create', 'UserController@create')->name('profiles.create');
+
+// route the request to the controller
+Route::post('/profiles', 'UserController@store')->name('profiles.store');
+
+// profile overview
 Route::get('/profiles', 'Usercontroller@index')->middleware('admin');
 
 // delete profile
@@ -95,3 +102,11 @@ Route::put('/reviews/{review}','ReviewController@update')->name('reviews.update'
 
 // route to the detele function
 Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.delete');
+
+/**
+ * ROUTE TO THE TEST API PAGE
+ *
+ *
+ *
+ */
+Route::view('/view/user', 'profiles\API\index');
