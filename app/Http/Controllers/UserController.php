@@ -103,7 +103,7 @@ class UserController extends Controller
             $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
 
             // Get star mask
-            $img = Image::make('storage/default/starMask.png')->fit(200, 200);
+            $img = Image::make('assets/default/starMask.png')->fit(200, 200);
 
             $image->insert($img);
 
