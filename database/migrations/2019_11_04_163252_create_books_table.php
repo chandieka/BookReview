@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('description', 511);
             $table->date('date');
             $table->string('author', 63);
-            $table->string('image')->default('storage/default/default.png');
+            $table->string('image')->default('default/default.png');
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
         });

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use \Auth;
 
 class BookController extends Controller
 {
@@ -117,9 +120,10 @@ class BookController extends Controller
             $book->image = request()->image->store('uploads', 'public');
             
             // Scaling the image
-            $image = Image::make(public_path('storage/' . $profile->image))->fit(200, 200);
+            $image = Image::make(public_path('storage/' . $book->image))->fit(300, 400);
             $image->save();
         }
+        $book->genres()->attach(request('genre'));
         $book->save();
         return redirect('books')->with('success', 'A book has been editted');
     }

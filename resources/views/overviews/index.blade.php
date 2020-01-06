@@ -10,17 +10,18 @@
             <div>
                 <div class="row align-items-center">
                     <h1 class="col">
-                        <a href="/books/{{ $book->id }}">{{ $book->title }}</a>
+                        <a class="nostyle" href="/books/{{ $book->id }}">{{ $book->title }}</a>
                     </h1>
                 </div>
-                <p>
-                    Published : {{ $book->date}}
-                </p>
+                <div class="col-9 float-left">
+                    <a class="nostyle" href="/books/{{ $book->id }}"><img src="{{ asset('storage/' . $book->image) }}" class="img-thumbnail"></a>
+                </div>
+                <div class="float-right">
+                    {{ $book->description }}
+                </div>
             </div>
             <div>
-                <p>
-                    {{ $book->description }}
-                </p>
+
             </div>
         </div>
         @empty
