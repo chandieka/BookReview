@@ -39,6 +39,6 @@
     <div class="d-flex justify-content-center">
         {{$books }}
     </div>
-
 </div>
+
 @endsection
