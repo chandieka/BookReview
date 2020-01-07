@@ -102,3 +102,13 @@ Route::put('/reviews/{review}','ReviewController@update')->name('reviews.update'
 
 // route to the detele function
 Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.delete');
+
+/**
+ * ROUTE TO THE TEST API PAGE
+ *
+ *
+ *
+ */
+Route::view('/view/user', 'profiles\API\index');
+
+Route::view('/view/create/user', 'profiles\API\register');

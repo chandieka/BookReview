@@ -110,10 +110,10 @@
         </main>
     </div>
     {{-- Tooltip Script --}}
-    <script>
+    {{-- <script>
         $(function () {
         $('[data-toggle="tooltip"]').tooltip()
         })
-    </script>
+    </script> --}}
 </body>
 </html>

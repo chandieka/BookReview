@@ -18,7 +18,7 @@ class UserApiController extends Controller
      */
     public function index()
     {
-        return new UserResourceCollection(User::paginate());
+        return new UserResourceCollection(User::paginate(10));
     }
 
 
@@ -40,8 +40,7 @@ class UserApiController extends Controller
         $user->password = Hash::make($request->password);
         $user->update();
 
-        return $user;
-        // return new UserResource($user);
+        return new UserResource($user);
     }
 
     /**

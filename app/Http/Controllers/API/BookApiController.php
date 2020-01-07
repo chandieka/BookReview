@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Book;
 use Illuminate\Http\Request;
+use App\Http\Resources\BookResourceCollection;
+use App\Http\Resources\BookResource;
 
 class BookApiController extends Controller
 {
@@ -14,7 +16,7 @@ class BookApiController extends Controller
      */
     public function index()
     {
-        return new BookResourceCollection(Book::paginate());
+        return new BookResourceCollection(Book::paginate(10));
     }
 
     /**
