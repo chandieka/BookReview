@@ -31,7 +31,7 @@
                     </li>
                     <li class="page-item active">
                         <button class="page-link" id="current">
-                            2
+                            1
                             <span class="sr-only">(current)
                         </button>
                     </li>
