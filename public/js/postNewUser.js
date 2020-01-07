@@ -1,4 +1,4 @@
-document.getElementById('register').addEventListener('click',PostNewUser);
+document.getElementById('register').addEventListener('click', PostNewUser);
 
 let apiUrl = 'http://127.0.0.1:8000/api/user';
 
@@ -17,20 +17,22 @@ async function PostNewUser() {
             password : password,
         }
 
-        console.log(newUser);
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json',
+            },
+            body: JSON.stringify(newUser),
+        })
 
-        // const response = await fetch(apiUrl, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type' : 'application/json',
-        //     },
-        //     body: JSON.stringify(newUser),
-        // })
-
-        // const data = await response.json();
-
-        // console.log(data);
+        const data = await response.json();
     }
+}
 
+function post() {
+    PostNewUser()
+    .then(
+        response => console.log(response)
+    )
 }

@@ -37,6 +37,7 @@ class UserApiController extends Controller
 
         $user = User::create($request->all());
         $user->password = bcrypt($request->password);
+        $user->save();
 
         return new UserResource($user);
     }
