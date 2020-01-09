@@ -19,7 +19,8 @@ class BooksTableSeeder extends Seeder
                 [
                     'title' => 'Book No. '.$counter,
                     'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quidem rem quaerat sit ratione veniam aut aspernatur. Culpa, nisi? Voluptatem modi corrupti unde a quod similique perferendis suscipit reprehenderit eligendi.',
-                    'date' => $date
+                    'date' => $date,
+                    'author' => 'Author No.'.$counter
                 ],
             ]);
             $repeat = strtotime("+1 year",strtotime($date));

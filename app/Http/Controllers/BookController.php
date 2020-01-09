@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use \Auth;
 
 class BookController extends Controller
 {
@@ -51,7 +54,7 @@ class BookController extends Controller
     {
         // validate the datas
         $this->requestValidate($request);
-        $data = request(['title', 'description', 'date']);
+        $data = request(['title', 'description', 'date', 'author', 'image']);
 
         // create the book
         $book = \App\Book::create($data);
@@ -72,7 +75,7 @@ class BookController extends Controller
         $book = \App\Book::findOrFail($id);
         $reviews = \App\Review::where('book_id', $book->id)->paginate(4);
         $genres = $book->genres;
-        return view('books/show', compact('book', 'id', 'reviews', 'genres'));
+        return view('books/show', compact('book', 'reviews', 'genres'));
     }
 
     /**
@@ -84,7 +87,16 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = \App\Book::findOrFail($id);
-        return view('books/edit',compact('book','id'));
+        $all_genres = \App\Genre::all();
+        if(!is_null($book->genres))
+        {
+        $book_genres = $book->genres;
+        }
+        else
+        {
+            $book_genres = [];
+        }
+        return view('books/edit',compact('book','all_genres', 'book_genres'));
     }
 
     /**
@@ -100,6 +112,18 @@ class BookController extends Controller
         $book->title = $request->get('title');
         $book->description = $request->get('description');
         $book->date = $request->get('date');
+        $book->author = $request->get('author');
+        if (request()->has('image')) {
+            request()->validate([
+                'image' => 'file|image',
+            ]);
+            $book->image = request()->image->store('uploads', 'public');
+            
+            // Scaling the image
+            $image = Image::make(public_path('storage/' . $book->image))->fit(300, 400);
+            $image->save();
+        }
+        $book->genres()->attach(request('genre'));
         $book->save();
         return redirect('books')->with('success', 'A book has been editted');
     }

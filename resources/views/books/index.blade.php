@@ -34,8 +34,8 @@
 
       @foreach($books as $book)
       <tr>
-        <td><a href="/books/{{$book->id}}" class="link-no-highlight">{{ $book->id }}</a></td>
-        <td><a href="/books/{{$book->id}}" class="link-no-highlight">{{ $book->title }}</a></td>
+        <td><a href="/books/{{$book->id}}" class="nostyle">{{ $book->id }}</a></td>
+        <td><a href="/books/{{$book->id}}" class="nostyle">{{ $book->title }}</a></td>
         <td>{{ str_limit($book->description, 100) }}</td>
         <td>{{ $book->date }}</td>
 

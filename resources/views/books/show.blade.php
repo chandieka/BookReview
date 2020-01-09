@@ -11,8 +11,16 @@
             </h1>
         </div>
         <div class="p-4 row">
-            <div class="col-5">
-                <image height="250em" width="250em" src=""/ class="">
+            <div class="col-5 image">
+                @if($book->image)
+                    <a href="{{action('BookController@edit', $book->id)}}" title="Upload the book's picture">
+                    <img src="{{ asset('storage/' . $book->image) }}" class="img-thumbnail">
+                    </a>
+                @else
+                    <a href="{{action('BookController@edit', $book->id)}}" title="Upload the book's picture">
+                        <img src="{{ asset('storage/default/default.png') }}" class="img-thumbnail">
+                    </a>
+                @endif
             </div>
             <div class="col-7">
                 <div class="row">
