@@ -92,10 +92,11 @@ class ReviewController extends Controller
         // Validate Request
         $data = request()->validate([
             'title' => 'required|min:5',
-            'rating' => 'required',
+            'rating' => 'required|integer|digits_between:0,10',
             'content' => 'required|min:20',
         ]);
 
+        $review = Review::findOrFail($id);
         /*
             TODO:
                 INPUT VALIDATION
