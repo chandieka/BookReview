@@ -17,7 +17,7 @@ class BookController extends Controller
     {
         $books=\App\Book::all();
 
-        $pdf = PDF::loadView('books.pdf', compact('books'));
+        $pdf = PDF::loadView('books.test', compact('books'));
         return $pdf->download('content.pdf');
     }
 
