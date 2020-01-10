@@ -17,19 +17,19 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
     margin-right: -15px;
     margin-left: -15px;
 }
 
 .shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    /* box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; */
 }
 
 .align-items-center {
-    align-items: center !important;
-    justify-content: center;
+    /* align-items: center !important; */
+    /* justify-content: center; */
 }
 
 .float-left {

@@ -43,7 +43,7 @@ Route::get('/books/create', 'BookController@create')->name('books.create')->midd
 Route::post('/books', 'BookController@store')->name('books.store')->middleware('admin');
 
 // route to export to pdf
-Route::get('/books/pdf', 'BookController@export_pdf');
+Route::get('/books/exportpdf', 'BookController@export_pdf');
 
 // route to show a single book
 Route::get('/books/{book}', 'BookController@show')->name('books.show');

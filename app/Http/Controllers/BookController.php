@@ -15,12 +15,10 @@ class BookController extends Controller
 
     public function export_pdf()
     {
-        $books=\App\Book::paginate(1);
+        $books=\App\Book::all();
 
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('books/pdf', compact('books'));
+        $pdf = PDF::loadView('books.pdf', compact('books'));
         return $pdf->download('content.pdf');
-        // view('books/pdf', compact('books'));
     }
 
     public function requestValidate()
