@@ -35,7 +35,9 @@
                     {{ $book->description}}
                 </h3>
                 <p>
-                    Published : {{ $book->date }}
+                    Published on: {{ $book->date }}
+                    <br>
+                    Published by: {{ $book->author }}
                 </p>
             </div>
         </div>

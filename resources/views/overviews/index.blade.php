@@ -18,11 +18,11 @@
                         <a class="nostyle" href="/books/{{ $book->id }}">{{ $book->title }}</a>
                     </h1>
                 </div>
-                <div class="col-9 float-left">
+                <div class="row col-9 float-left">
                     <a class="nostyle" href="/books/{{ $book->id }}"><img src="{{ asset('storage/' . $book->image) }}" class="img-thumbnail"></a>
                 </div>
-                <div class="float-right">
-                    {{ $book->description }}
+                <div class="align-items-center">
+                    {{ substr($book->description, 0, 150) }}
                 </div>
             </div>
             <div>
