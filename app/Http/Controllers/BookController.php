@@ -131,6 +131,19 @@ class BookController extends Controller
             
             // Scaling the image
             $image = Image::make(public_path('storage/' . $book->image))->fit(300, 400);
+
+            // Get round mask
+            $img = Image::make('assets/default/circleMask.png')->fit(300, 400);
+
+            $image->insert($img);
+
+            // Watermark
+            $image->text('BookReviews', 150, 390, function($font) {
+                $font->color('#72BCD4');
+                $font->align('center');
+                $font->valign('bottom');
+            });
+
             $image->save();
         }
         $book->genres()->attach(request('genre'));

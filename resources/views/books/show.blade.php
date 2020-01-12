@@ -18,7 +18,7 @@
                     </a>
                 @else
                     <a href="{{action('BookController@edit', $book->id)}}" title="Upload the book's picture">
-                        <img src="{{ asset('storage/default/default.png') }}" class="img-thumbnail">
+                        <img src="{{ asset('storage/uploads/default.png') }}" class="img-thumbnail">
                     </a>
                 @endif
             </div>

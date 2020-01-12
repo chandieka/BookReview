@@ -81,6 +81,6 @@ class BookApiController extends Controller
     {
         $book->delete();
 
-        return response()->json();
+        return redirect('books')->with('success','A book has been  deleted');
     }
 }

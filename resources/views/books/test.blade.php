@@ -6,6 +6,9 @@
         <h1>{{ $book->title }}</h1>
     </div>
     <div>
+        <h2>{{ $book->author }}</h2>
+    </div>
+    <div>
         <img class="sized" src="{{ public_path() . '/storage/' . $book->image }}">
     </div>
     <div class="desc">
@@ -13,4 +16,3 @@
     </div>
 </div>
 @endforeach
-
