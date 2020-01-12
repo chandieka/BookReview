@@ -34,7 +34,7 @@ Route::get('/overview/reviews','OverviewController@reviews')->name('overview.rev
 // route to the books page where all the books are shown
 // Route::get('/books', 'BookController@index')->name('books.index');
 
-Route::get('/books', 'BookController@index')->middleware('admin');
+Route::get('/books', 'BookController@index')->name('books.index')->middleware('admin');
 
 // route to the book creation page
 Route::get('/books/create', 'BookController@create')->name('books.create')->middleware('admin');

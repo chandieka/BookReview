@@ -14,7 +14,7 @@ class BookApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): BookResourceCollection
     {
         return new BookResourceCollection(Book::paginate());
     }
@@ -31,6 +31,7 @@ class BookApiController extends Controller
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
+            'author' => 'required',
         ]);
 
         $book = Book::create($request->all());
@@ -46,7 +47,7 @@ class BookApiController extends Controller
      */
     public function show(Book $book)
     {
-        return BookResource($book);
+        return new BookResource($book);
     }
 
     /**
@@ -62,6 +63,7 @@ class BookApiController extends Controller
             'title' => 'required',
             'description' => 'required',
             'date' => 'required',
+            'author' => 'required',
         ]);
 
         $book->update($request->all());
