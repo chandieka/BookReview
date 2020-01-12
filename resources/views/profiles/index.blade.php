@@ -9,15 +9,17 @@
             <h1 class="text-white col-11" >
                     Profile Overview
             </h1>
-            <button type="button" class="btn btn-primary col-1" onclick="window.location.href = 'profiles/create';" data-toggle="tooltip" data-placement="bottom" title="Create A New Profile" >
+            {{-- change URL --}}
+            <script>
+                let create = function()
+                {
+                    window.location.href = 'profiles/create';
+                };
+            </script>
+            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Profile" >
                 <i class="fas fa-plus"></i>
             </button>
         </div>
-    </div>
-    <div class="mb-3">
-        <button type="button" class="btn btn-warning col-1 mr-1" onclick="window.location.href = 'users/export';">
-                <i class="fas fa-file-download"></i>
-        </button>
     </div>
     <table class="table table-striped">
     <thead>
@@ -29,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-
+      
       @foreach($profiles as $profile)
       <tr>
         <td>{{ $profile->id }}</td>
@@ -40,8 +42,8 @@
         @else
         <td> Common User </td>
         @endif
-
-
+        
+        
         <td><form method="POST" action="{{action('UserController@makeAdmin', $profile->id)}}">
           @csrf
           @method('PUT')
@@ -59,7 +61,7 @@
             <button class="btn btn-danger" type="submit">Delete</button>
           </form>
         </td>
-
+        
       </tr>
       @endforeach
     </tbody>
@@ -67,13 +69,13 @@
 
     <div class="d-flex justify-content-center">
         {{ $profiles }}
-    </div>
-
+    </div>      
+      
   @if (\Session::has('success'))
       <div class="alert alert-success">
         <p>{{ \Session::get('success') }}</p>
       </div><br />
      @endif
   </div>
-
+  
 @endsection

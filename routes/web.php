@@ -109,14 +109,9 @@ Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.del
 /**
  * ROUTE TO THE TEST API PAGE
  *
+ *
+ *
  */
 Route::view('/view/user', 'profiles\API\index');
 
 Route::view('/view/create/user', 'profiles\API\register');
-
-/**
- * Route to the Export Page
- *
- */
-
- Route::get('users/export/', 'UserController@export');

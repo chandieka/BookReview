@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
-use App\Exports\UsersExport;
-use Maatwebsite\Excel\Facades\Excel;
 use \Auth;
 
 class UserController extends Controller
@@ -150,10 +148,5 @@ class UserController extends Controller
 
         $profile->delete();
         return redirect('/profiles');
-    }
-
-    public function export()
-    {
-        return Excel::download(new UsersExport, 'users.xlsx');
     }
 }
