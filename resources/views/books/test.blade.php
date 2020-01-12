@@ -9,7 +9,11 @@
         <h2>{{ $book->author }}</h2>
     </div>
     <div>
+    @if($book->image)
         <img class="sized" src="{{ public_path() . '/storage/' . $book->image }}">
+    @else
+        <img class="sized" src="{{ public_path() . '/assets/default/defaultBook.png' }}">
+    @endif
     </div>
     <div class="desc">
         {{ $book->description }}
