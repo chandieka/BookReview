@@ -14,5 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::apiResource('/user', 'API\UserApiController');
-Route::apiResource('/review', 'API\ReviewApiController');
 Route::apiResource('/book', 'API\BookApiController');

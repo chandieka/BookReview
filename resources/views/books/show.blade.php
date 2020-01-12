@@ -60,7 +60,7 @@
                         <div>
                             <div class="row align-items-center">
                                 <h1 class="col">
-                                    <a href="/reviews/{{ $review->id }}">{{ $review->title }}</a>
+                                    {{ $review->title }}
                                 </h1>
                                 <div class="col">
                                     <div class="row justify-content-end">
@@ -79,7 +79,6 @@
                                 {!! $review->content !!}
                             </p>
                         </div>
-                        <a href="/">Read More..</a>
                     </div>
                 </div>
             @empty
