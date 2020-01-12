@@ -15,14 +15,24 @@
             <div>
                 <div class="row align-items-center">
                     <h1 class="col">
+                        @if(strlen($book->title) > 15)
+                        <a class="nostyle" href="/books/{{ $book->id }}">{{ substr($book->title, 0, 14) }}...</a>
+                        @else
                         <a class="nostyle" href="/books/{{ $book->id }}">{{ $book->title }}</a>
+                        @endif
                     </h1>
                 </div>
-                <div class="row col-9 float-left">
+                @if($book->image)
+                    <div class="row col-9 float-left">
                     <a class="nostyle" href="/books/{{ $book->id }}"><img src="{{ asset('storage/' . $book->image) }}" class="img-thumbnail"></a>
-                </div>
+                    </div>
+                @else
+                    <div class="row col-9 float-left">
+                    <a class="nostyle" href="/books/{{ $book->id }}"><img src="{{ asset('assets/default/defaultBook.png') }}" class="img-thumbnail"></a>
+                    </div>
+                @endif
                 <div class="align-items-center">
-                    {{ substr($book->description, 0, 150) }}
+                    {{ substr($book->description, 0, 100) }}...
                 </div>
             </div>
             <div>

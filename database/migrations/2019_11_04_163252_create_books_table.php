@@ -16,10 +16,10 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 63);
-            $table->string('description', 511);
+            $table->text('description');
             $table->date('date');
             $table->string('author', 63);
-            $table->string('image')->default('uploads/default.png');
+            $table->string('image')->nullable();;
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
         });

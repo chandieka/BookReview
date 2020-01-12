@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
       <h2>Adding a book to the database</h2><br/>
-      <form method="POST" action="/books" class="bg-light shadow-sm p-3">
+      <form method="POST" action="/books" class="bg-light shadow-sm p-3" enctype="multipart/form-data">
       @csrf
       <div class="row">
           <div class="col-md-4"></div>
