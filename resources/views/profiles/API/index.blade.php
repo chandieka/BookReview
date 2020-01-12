@@ -51,5 +51,5 @@
             </nav>
         </div>
     </div>
-    <script src="/js/fetchBook.js"></script>
+    <script src="/js/fetchUser.js"></script>
 @endsection
