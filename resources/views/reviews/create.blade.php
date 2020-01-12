@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group col-6">
                         <label for="rating">Rating: (0-10) </label>
-                        <input class="form-control" type="number" name="rating" placeholder="Enter the rating of the Review here..." value="{{old('rating')}}">
+                        <input class="form-control" type="number" name="rating" placeholder="Enter the rating of the Review here..." value="{{old('rating')}}" max="10" min="0" step="1">
                         @error('rating')
                             <strong>{{ $message }}</strong>
                         @enderror

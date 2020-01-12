@@ -50,13 +50,9 @@ class ReviewController extends Controller
         // validate the datas
         $review = $this->requestValidate();
 
-        /*
-            TODO:
-                DO INPUT VALIDATION
-        */
-
         // create the review
         $data = \App\Review::create($review);
+
         // assigned the review to the auth user
         $data->user_id = auth()->user()->id;
         $data->book_id = request()->book_id;
@@ -72,6 +68,7 @@ class ReviewController extends Controller
         # code...
     }
 
+    // edit reviews
     public function edit($id)
     {
         $review = \App\Review::findOrFail($id);
@@ -85,22 +82,18 @@ class ReviewController extends Controller
         }
     }
 
+    // update the edited review
     public function update($id)
     {
-        // get the object from th= \App\Review::findOrFail($id);
-
         // Validate Request
         $data = request()->validate([
             'title' => 'required|min:5',
-            'rating' => 'required|integer|digits_between:0,10',
+            'rating' => 'required|digits_between:0,10',
             'content' => 'required|min:20',
         ]);
 
+        // get the review
         $review = Review::findOrFail($id);
-        /*
-            TODO:
-                INPUT VALIDATION
-        */
 
         // Update the Review
         $review->update($data);
@@ -108,21 +101,22 @@ class ReviewController extends Controller
         return redirect('/reviews');
     }
 
+    // delete the reviews
     public function destroy($id)
     {
         // get the review
         $review = \App\Review::findOrFail($id);
 
-        // abort_unless(Gate::allows('delete', $review), 403);
-        $this->authorize('delete', $review);
-
-        // delete this review
-        $review->delete();
-
         // FOR Admin when review is deleted redirect to the overview review page
-        $user = auth()->user();
-        if ($user->isSuperAdmin()){
-             return redirect('/overview/reviews')->with('success','Review had been deleted!!');
+
+        if (Gate::allows('delete-review',$review)){
+            // delete this review
+            $review->delete();
+
+            return redirect('/overview/reviews')->with('success','Review had been deleted!!');
+        }
+        else{
+            return redirect('/')->with('success','Insufficient Access!!');
         }
 
         return redirect('/reviews');

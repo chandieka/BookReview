@@ -31,5 +31,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('edit-review', function($user, $review){
             return $user->id === $review->user_id;
         });
+
+        Gate::define('delete-review', function($user, $review){
+            return $user->id === $review->user_id && $user->isAdmin == 1;
+        });
     }
 }
