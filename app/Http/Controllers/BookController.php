@@ -6,10 +6,20 @@ use App\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use PDF;
+use App;
 use \Auth;
 
 class BookController extends Controller
 {
+
+    public function export_pdf()
+    {
+        $books=\App\Book::all();
+
+        $pdf = PDF::loadView('books.test', compact('books'));
+        return $pdf->download('content.pdf');
+    }
 
     public function requestValidate()
     {

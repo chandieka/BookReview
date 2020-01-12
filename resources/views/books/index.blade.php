@@ -19,6 +19,7 @@
             <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Review" >
                 <i class="fas fa-plus"></i>
             </button>
+            <a href="{{action('BookController@export_pdf')}}" class="btn btn-primary">PDF</a>
         </div>
     </div>
     <table class="table table-striped">
