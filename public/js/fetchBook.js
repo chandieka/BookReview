@@ -30,3 +30,5 @@ function ViewBooks(books){
 
         // append the element
         wrapper.append(id);
+    }
+}
