@@ -16,11 +16,14 @@
                     window.location.href = 'books/create';
                 };
             </script>
-            <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Review" >
-                <i class="fas fa-plus"></i>
-            </button>
-            <a href="{{action('BookController@export_pdf')}}" class="btn btn-primary">PDF</a>
+
         </div>
+    </div>
+    <div class="row mb-2">
+        <a href="{{action('BookController@export_pdf')}}" class="btn btn-warning col-1 mr-1">PDF</a>
+        <button type="button" class="btn btn-primary col-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New Book" >
+                <i class="fas fa-plus"></i>
+        </button>
     </div>
     <table class="table table-striped">
     <thead>

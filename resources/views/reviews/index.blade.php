@@ -17,17 +17,6 @@
                     Review Page
                 </h1>
             </div>
-            {{-- icons --}}
-            <div class="col-2">
-                <div class="row">
-                    <a name="" id="" class="btn btn-primary col ml-3" href="#" role="button">
-                        <i class="fas fa-sort-alpha-up"></i>
-                    </a>
-                    <a name="" id="" class="btn btn-primary col ml-3" href="#" role="button">
-                        <i class="fas fa-sort-alpha-down"></i>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <div class="row">

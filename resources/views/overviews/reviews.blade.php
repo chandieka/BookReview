@@ -24,7 +24,7 @@
         @forelse ($reviews as $review)
             <tr>
                 <th scope="row"><a href="/books/{{$review->book_id}}"> {{ $review->id }} </a></th>
-                <td class=""><a href="">{{ $review->user->name}}</a></td>
+                <td class="">{{ $review->user->name}}</td>
                 <td class=""> {{ $review->title }} </td>
                 <td class=""> {{ $review->rating }} </td>
                 <td>

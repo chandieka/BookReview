@@ -19,7 +19,7 @@ class ReviewsTableSeeder extends Seeder
                     'title' => 'Review '.$counter,
                     'user_id' => 1,
                     'book_id' => $counter,
-                    'rating' => 7.5,
+                    'rating' => 8,
                     'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quidem rem quaerat sit ratione veniam aut aspernatur. Culpa, nisi? Voluptatem modi corrupti unde a quod similique perferendis suscipit reprehenderit eligendi.',
                     'created_at' => now(),
                     'updated_at' => now(),

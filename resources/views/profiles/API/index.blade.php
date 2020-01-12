@@ -15,10 +15,13 @@
                         window.location.href = 'create/user';
                     };
                 </script>
-                <button type="button" class="btn btn-primary col-sm-12 col-lg-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New user" >
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
+
+            </div>
+        </div>
+        <div class="row mb-2">
+            <button type="button" class="btn btn-primary col-sm-12 col-lg-1" onclick="create();" data-toggle="tooltip" data-placement="bottom" title="Create A New user" >
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
         <table class="table table-striped">
         <thead>

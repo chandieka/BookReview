@@ -23,7 +23,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('book_id')->nullable();
             $table->string('title');
-            $table->decimal('rating');
+            $table->integer('rating');
             $table->longText('content');
             $table->timestamps();
 
