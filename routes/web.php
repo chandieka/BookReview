@@ -110,3 +110,5 @@ Route::delete('/reviews/{review}','ReviewController@destroy')->name('reviews.del
  *
  */
 Route::view('/view/user', 'profiles\API\index');
+
+Route::view('/view/create/user', 'profiles\API\register');

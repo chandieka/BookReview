@@ -16,7 +16,7 @@ class BookApiController extends Controller
      */
     public function index(): BookResourceCollection
     {
-        return new BookResourceCollection(Book::paginate());
+        return new BookResourceCollection(Book::paginate(10));
     }
 
     /**

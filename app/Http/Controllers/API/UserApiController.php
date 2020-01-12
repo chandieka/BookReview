@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResourceCollection;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserApiController extends Controller
@@ -17,7 +18,7 @@ class UserApiController extends Controller
      */
     public function index()
     {
-        return new UserResourceCollection(User::paginate());
+        return new UserResourceCollection(User::paginate(10));
     }
 
 
@@ -36,7 +37,8 @@ class UserApiController extends Controller
         ]);
 
         $user = User::create($request->all());
-        $user->password = bcrypt($request->password);
+        $user->password = Hash::make($request->password);
+        $user->update();
 
         return new UserResource($user);
     }

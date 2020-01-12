@@ -1,21 +1,23 @@
 let apiUrl = 'http://127.0.0.1:8000/api/user';
-let booksLinks;
-// fetch the api
-async function GetBooks(){
-    const response = await fetch(apiUrl);
-    const books = await response.json();
+let userLinks;
 
-    console.log(books.meta.current_page);
-    ViewBooks(books);
-    SetPaginator(books);
+// fetch the api
+async function Getuser(){
+
+    const response = await fetch(apiUrl);
+    const user = await response.json();
+
+    console.log(user.meta.current_page);
+    Viewuser(user);
+    SetPaginator(user);
 }
 
 // Send the data to the view
-function ViewBooks(books){
+function Viewuser(user){
     // get the container
     let content = document.querySelector('#content');
 
-    for (let i = 0; i < books.data.length;i++){
+    for (let i = 0; i < user.data.length;i++){
         // create element
         let wrapper = document.createElement('tr');
         let id = document.createElement('td');
@@ -23,9 +25,9 @@ function ViewBooks(books){
         let email = document.createElement('td');
 
         // add the data
-        id.innerHTML = books.data[i].id;
-        name.innerHTML = books.data[i].name;
-        email.innerHTML = books.data[i].email;
+        id.innerHTML = user.data[i].id;
+        name.innerHTML = user.data[i].name;
+        email.innerHTML = user.data[i].email;
 
         // append the element
         wrapper.append(id);
@@ -37,39 +39,40 @@ function ViewBooks(books){
     }
 }
 
-function SetPaginator(books){
+function SetPaginator(user){
     let paginator = document.querySelector('#current');
-    paginator.innerHTML = books.meta.current_page;
-    booksLinks = books.links;
+    paginator.innerHTML = user.meta.current_page;
+    userLinks = user.links;
 }
 
 function GoBefore(){
     let content = document.querySelector('#content');
-    apiUrl = booksLinks.prev;
+    apiUrl = userLinks.prev;
 
     if (apiUrl !== null){
         content.innerHTML = '';
-        GetBooks();
+        Getuser();
     }
 }
 
 function GoAfter(){
     let content = document.querySelector('#content');
-    apiUrl = booksLinks.next;
+    apiUrl = userLinks.next;
 
     if (apiUrl !== null) {
         content.innerHTML = '';
-        GetBooks();
+        Getuser();
     }
 }
 
 // call the api
-GetBooks()
+Getuser()
 .then(
-    response => console.log('Success!')
-).catch(
+    response => {
+        console.log('Success!');
+}).catch(
     error => {
-        console.error(error)
+        console.error(error);
 });
 
 
