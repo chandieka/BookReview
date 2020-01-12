@@ -20,11 +20,6 @@
                 </button>
                 </div>
         </div>
-        <div class="mb-3">
-            <button type="button" class="btn btn-warning col-1 mr-1" onclick="window.location.href = 'users/export';">
-                    <i class="fas fa-file-download"></i>
-            </button>
-        </div>
         <table class="table table-striped">
         <thead>
             <tr>
